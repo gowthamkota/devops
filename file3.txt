@@ -1,0 +1,3080 @@
+ <!DOCTYPE html>
+<html>
+    <script>
+        //number array
+        var num_arr1 = [10,20,30,40,50];
+        var num_arr2 = [60,70,80,90,100];
+        num_arr1.forEach(function(element,index){
+            console.log(element+"...."+num_arr2[index]);
+        });
+        /*
+            10....60
+            20....70
+            30....80
+            40....90
+            50....100
+        */
+        //json array
+        //json stands for java script object notation
+        //json used to transfer the data over the network
+        //json is ligth weigth compared to XML.
+        //parsing of json eazy compared to XML
+        //objects -- {}    arrays  --  []   data -- key & value
+        //key & value separated by using ":"
+        //key & value pairs separated by using ","
+        var employees = [
+            {e_id:111,e_name:`e_one`,e_sal:`$1`},
+            {e_id:222,e_name:`e_two`,e_sal:`$2`},
+            {e_id:333,e_name:`e_three`,e_sal:`$3`},
+            {e_id:444,e_name:`e_four`,e_sal:`$4`},
+            {e_id:555,e_name:`e_five`,e_sal:`$5`}
+        ];
+        employees.forEach(function(element,index){
+            console.log(element.e_id,
+                        element.e_name,
+                        element.e_sal);
+        });
+        /*
+            111 "e_one" "$1"
+            222 "e_two" "$2"
+            333 "e_three" "$3"
+            444 "e_four" "$4"
+            555 "e_five" "$5"
+        */
+    </script>
+</html> 
+
+
+
+
+<<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,3];
+        console.log(arr);   //1,2,3,4
+        console.log(JSON.parse(JSON.stringify(arr)));  //1,2,3
+        arr.push(4);
+        console.log(arr);   //1,2,3,4
+        console.log(JSON.parse(JSON.stringify(arr)));  
+                            //1,2,3,4
+    </script>
+</html> 
+
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        function myFun(){
+            {
+                var v = "var";
+                let l = "let";   
+            }
+            console.log(v);   //var
+            console.log(l);   //Uncaught ReferenceError: l is not defined
+        };
+        myFun();
+        //var scope is function
+        //let scope is block
+    </script>
+</html> 
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        for(var i=0;i<10;i++){
+        };
+        console.log(i);   //10
+
+        for(let j=0;j<10;j++){
+        };
+        console.log(j);   //Uncaught ReferenceError: j is not defined
+
+        //var breaks the scope rule
+        //let obeys the scope rule
+    </script>
+</html> 
+
+(30-7-2019)
+
+(31-7-2019)
+
+<<!DOCTYPE html>
+<html>
+    <script>
+        var data = 100;
+        var data = 200;
+        console.log(data);   //200
+        //var keyword allows the duplicate variables
+    </script>
+</html>
+
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        let data = 100;
+        let data = 200;
+        console.log(data);  //Uncaught SyntaxError: Identifier 'data' has already been declared
+        //let won't allows the duplicate variables
+    </script>
+</html> 
+
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        console.log(data);   //undefined
+        var data = 100;
+        //undefined assigned by javascript before it's initilization
+        //assigning undefined by javascript called as variable hoising
+    </script>
+</html> 
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log(data);  //Uncaught ReferenceError: Cannot access 'data' before initialization
+        let data = 100;  
+    </script>
+</html> 
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        //global variable
+        var data = 100;
+        //block
+        {
+            //local variable
+            var data = 200;
+        }
+        console.log(data);   //200
+        //if block code effecting the global members called as global polluting issue
+        //global polluting issue raised because of "var" keyword
+        //we can overcome global polluting issue by using either "let" or "IIFE"
+        //IIFE Stands for Immidiate Invokable functional expressions
+        //IIFE introduced in ES9
+    </script>
+</html> 
+
+
+
+
+    overcome "GPE" by using "let"
+
+<!DOCTYPE html>
+<html>
+    <script>
+        //global variable
+        let data = 100;
+        //block
+        {
+            //local variable
+            let data = 200;
+        }
+        //access the global variable
+        console.log(data);  //100
+    </script>
+</html>
+
+
+
+<!---
+    overcome GPE by using IIFE
+    (function(){
+        //Code
+    })()--->
+
+<!DOCTYPE html>
+<html>
+    <script>
+        //global variable
+        var data = 100;
+        //block
+        {
+            //IIFE
+            (function(){
+                //local variable
+                var data = 200;
+            })()
+        }
+        //access the global variable
+        console.log(data);   //100
+    </script>
+</html>
+
+
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        //console.log(v);  //Uncaught ReferenceError: v is not defined
+        console.log(l);   //Uncaught ReferenceError: l is not defined
+        function myFun(){
+            //block
+            {
+                var v = "var";
+                let l = "let";
+                //console.log(v);  //var
+                //console.log(l);  //let
+            }
+            //console.log(v);  //var
+            //console.log(l);  //Uncaught ReferenceError: l is not defined
+        };
+        //console.log(v);  //Uncaught ReferenceError: v is not defined
+        //console.log(l);  //Uncaught ReferenceError: l is not defined
+        myFun();
+
+        //var scope is functional scope
+        //let scope is block scope
+    </script>
+</html> 
+
+
+
+
+
+(1-08-2019)
+
+
+
+<!--
+    - JSON Stands for Java Script Object Notation
+    - JSON also called as JavaScript Objects
+    - JSON used to transfer the data over the    
+      Network
+    - JSON is Network Friendly Format
+    - Parsing(Reading) of JSON Eazy Compared to     XML
+    - JSON is ligth weigth compared to XML.
+    Objects -- {}
+    Arrays  -- []
+    Data    -- key & value pairs
+               key & value separated by using ":"
+               key & value pairs separated by using ","
+-->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log( typeof {} );   //object
+        console.log( typeof typeof {} );  //string
+    </script>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj = {
+            wish : "Good Evening...!",
+            wish : "Welcome to JavaScript"
+        };
+        console.log(obj.wish);  //Welcome to JavaScript
+    </script>
+</html> 
+
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        let obj = {};
+        obj["wish"] = "welcome";
+        obj["wish"] = "ReactJS";
+        console.log(obj);   //{wish: "ReactJS"}
+    </script>
+</html> 
+
+
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        let obj = {
+        };
+        obj.wish = "Welcome";
+        obj.wish = "ReactJS";
+        console.log(obj);   //{wish: "ReactJS"}
+    </script>
+</html> 
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj={};
+        obj[{}] = "welcome";
+        obj[{}] = "ReactJS";
+        obj[{num:1}] = "React Native";
+        console.log(obj);  //{[object Object]: "React Native"}
+    </script>
+</html> 
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj = {};
+        let key1 = {};
+        let key2 = {num:1};
+        obj[key1] = "Welcome";
+        obj[key2] = "ReactJS";
+        console.log(obj);  //{[object Object]: "ReactJS"}
+        console.log(obj[key2]);  //ReactJS
+
+    </script>
+</html> 
+
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        let obj = {num:1};
+        console.log(obj);  //Object
+        console.log( JSON.stringify(obj) ); //{"num":1}
+    </script>
+</html> 
+
+
+
+
+(2-8-2019)
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj = {
+            p_id : 111
+        };
+        console.log(obj);  //{p_id: 111}
+        Object.freeze(obj);
+        obj.p_id = 222;
+        console.log(obj);  //{p_id: 111}
+        obj.p_name = "p_one";
+        console.log(obj);  //{p_id: 111}
+    </script>
+</html> 
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj = {p_id:111};
+        console.log(obj);  //{p_id: 111}
+        Object.seal(obj);
+        obj.p_id = 222;
+        console.log(obj);  //{p_id: 222}
+        obj.p_name = "p_two";
+        console.log(obj);   //{p_id: 222}
+    </script>
+</html> 
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj = {"p_id":111};
+        console.log(obj);   //Object { p_id: 111 }
+        Object.defineProperty(obj,"p_name",{
+            value:"p_one",
+            writable:false
+        });
+        console.log(obj);   //Object { p_id: 111,p_name:'p_one' }
+        obj.p_id = 222;
+        console.log(obj);  //Object { p_id: 222,p_name:'p_one' }
+        obj.p_name = "p_two";
+        console.log(obj);   //{p_id: 222, p_name: "p_one"}
+    </script>
+</html> 
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj = {
+            p_id : 111,
+            p_name : "p_one",
+            p_cost : 10000
+        };
+        console.log( Object.keys(obj) );  //["p_id", "p_name", "p_cost"]
+    </script>
+</html> 
+
+<!DOCTYPE html>
+<html>
+    <script>
+       let obj = {};
+       let key1 = {num:1};
+       obj[key1]="hello";
+       console.log(obj);  //{[object Object]: "hello"}
+       console.log( Object.keys(obj) );  //["[object Object]"]
+    </script>
+</html> 
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj = {
+            p_id : 111,
+            p_name : "p_one",
+            p_cost : 10000
+        };
+        console.log( Object.values(obj) ); //[111, "p_one", 10000]
+    </script>
+</html> 
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj1 = {p_id:111};
+        let obj2 = obj1;
+        console.log(obj1);   //{p_id: 111}
+        console.log(obj2);   //{p_id: 111}
+        obj2.p_name="Laptop";
+        console.log(obj1);   //{p_id: 111, p_name: "Laptop"}
+        console.log(obj2);   //{p_id: 111, p_name: "Laptop"}
+    </script>
+</html> 
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj1 = {p_id:111};
+        let obj2 = {...obj1};
+        console.log(obj1);  //{p_id: 111}
+        console.log(obj2);  //{p_id: 111}
+        obj2.p_name = "Laptop";
+        console.log(obj1);   //{p_id: 111}
+        console.log(obj2);   //{p_id: 111, p_name: "Laptop"}
+    </script>
+</html> 
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        let obj1 = {p_id:111};
+        let obj2 = {p_name:'p_one'};
+        let obj3 = {p_cost:10000};
+        console.log( {...obj1,
+                      ...obj2,
+                      ...obj3} 
+                    );//{p_id: 111, p_name: "p_one", p_cost: 10000}
+    </script>
+</html>
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let obj = {p_id:111};
+        console.log(
+            {...obj,
+            p_name:'p_one',
+            p_cost:10000}
+        );   //{p_id: 111, p_name: "p_one", p_cost: 10000}
+    </script>
+</html>
+
+
+
+(5-8-2019)
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let employees = [
+            {"e_id":"e101","e_name":"e_one","e_sal":10000},
+            {"e_id":"e102","e_name":"e_two","e_sal":20000},
+            {"e_id":"e103","e_name":"e_three","e_sal":30000},
+            {"e_id":"e104","e_name":"e_four","e_sal":40000},
+            {"e_id":"e105","e_name":"e_five","e_sal":50000}
+        ];
+        document.write(`
+            <table border="1"
+                   cellpadding="10px"
+                   cellspacing="10px"
+                   align="center"
+                   style="font-size:20px">
+                <thead style="background-color:pink">
+                   <tr>
+                        <th>SNO</th>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>SAL</th>
+                   </tr> 
+                </thead>
+        `);
+        employees.forEach(function(element,index){
+            document.write(`
+                <tbody style="background-color:silver">
+                    <tr>
+                        <td>${index+1}</td>
+                        <td>${element.e_id}</td>
+                        <td>${element.e_name}</td>
+                        <td>${element.e_sal}</td>
+                    </tr>
+                <tbody>
+            `);
+        });
+        document.write(`</table>`);
+    </script>
+</html> -->
+
+<!--
+    Read the Data from following URL
+    URL : https://restcountries.eu/rest/v2/all
+
+        - above URL Gives the JSON as Response.
+
+        - we will know the structure of JSON by visiting 
+          following website
+        URL : http://jsonviewer.stack.hu/
+
+        - initially we have JSON array.
+        - we will iterate JSON array by using forEach() loop
+        - JSON array containes 250 JSON Objects
+        - Each JSON Object containes following keys
+                @name
+                @capital
+                @flag
+        - Each JSON Object containes following Array
+                @currencies
+        - currencies array 0th position containes JSON Object
+        with following keys
+                @code
+                @name
+                @symbol
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+let currencies = "copy the data from URL";
+        document.write(`
+            <table border="1"
+                   cellpadding="10px"
+                   cellspacing="10px"
+                   align="center"
+                   style="font-size:20px">
+                <thead 
+                    style="background-color:pink">
+                   <tr>
+                        <th>SNO</th>
+                        <th>NAME</th>
+                        <th>CAPITAL</th>
+                        <th>CODE</th>
+                        <th>FLAG</th>
+                   </tr> 
+                </thead>
+        `);
+        countries.forEach(function(element,index){
+            document.write(`<tbody 
+                            style="background-color:grey">
+                                <tr>
+                                    <td>${index+1}</td>
+                                    <td>${element.name}</td>
+<                                    <td>${element.capital}</td>
+                                    <td>${element
+                                         .currencies[0]
+                                         .code}</td>
+                                    <td><img width="100px"
+                                             height="50px"
+                                             src="${element.flag}"></td>
+                                </tr>
+                            </tbody>`);
+        });
+        document.write(`</table>`);
+    </script>
+</html>
+
+
+
+(6-8-2019)
+
+
+
+<!--
+    Read the Data From following URL
+    URL : https://www.w3schools.com/
+          angular/customers.php
+    - above URL gives the JSON as Response
+    - initially we have JSON Object
+    - JSON Object contain "records" array.
+    - "records" array containes 15 JSON Objects
+    - Each JSON Object containes following keys
+            @Name
+            @City
+            @Country
+-->
+
+<!DOCTYPE html>
+<html>
+    <script>
+let obj = "copy the data from URL";
+        document.write(`
+                <table border="1"
+                       cellpadding="10px"
+                       cellspacing="10px"
+                       align="center"
+                       style="font-size:20px">
+                    <thead 
+                        style="background-color:grey">
+                        <tr>
+                            <th>SNO</th>
+                            <th>NAME</th>
+                            <th>CITY</th>
+                            <th>COUNTRY</th>
+                        </tr>
+                    </thead>
+        `);
+        obj.records.forEach(function(element,index){
+            document.write(`
+                <tbody style="background-color:pink">
+                    <tr>
+                        <td>${index+1}</td>
+                        <td>${element.Name}</td>
+                        <td>${element.City}</td>
+                        <td>${element.Country}</td>
+                    </tr>
+                </tbody>
+            `);
+        });
+        document.write(`</table>`);
+    </script>
+</html>
+-->
+
+
+
+<!--
+    AJAX
+    ----
+        - in general we will use AJAX to make
+          asynchronous calls.
+        - making service calls with out data 
+          "corruption" called as asynchronous
+          communication.
+        - in general we will use "JQUERY" library
+          to make AJAX Calls
+        - we will include JQUERY by using CDN.
+        
+        URL : https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
+-->
+<!--
+    Ex_1:
+        URL : https://restcountries.eu/rest/v2/all
+
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        </script>
+    </head>
+    <body>
+        <script>
+           $.ajax({
+               method:"GET",
+               url:"https://restcountries.eu/rest/v2/all",
+               success:(posRes)=>{
+                    console.log(posRes);
+               },
+               error:(errRes)=>{
+                    console.log(errRes);
+               }    
+           })
+        </script>
+    </body>
+</html>
+-->
+
+<!--
+    URL : https://www.w3schools.com/angular/customers.php
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        </script>
+    </head>
+    <body>
+        <script>
+            $.ajax({
+                method:"GET",
+                url:"https://www.w3schools.com/angular/customers.php",
+                success:(posRes)=>{
+                    //console.log(posRes);
+                    //console.log(typeof posRes);
+                    let obj = JSON.parse(posRes);
+                    console.log(obj);
+                },
+                error:(errRes)=>{
+                    console.log(errRes);
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+(7-8-2019)
+
+
+
+<!--
+    POST Request
+    ------------
+    URL : http://test-routes.herokuapp.com/test/uppercase
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script>
+            $.ajax({
+                method:"POST",
+                url:"http://test-routes.herokuapp.com/test/uppercase",
+                data:{'message':'reactjs'},
+                success:(posRes)=>{
+                    console.log(posRes);  //{message: "REACTJS"}
+                },
+                error:(errRes)=>{
+                    console.log(errRes);
+                }
+            })
+        </script>
+    </body>
+</html>
+-->
+
+<!--
+    URL_1:https://restcountries.eu/rest/v2/all
+    URL_2:https://www.w3schools.com/angular/customers.php
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script>
+            $.ajax({
+                method:"GET",
+                url:"https://restcountries.eu/rest/v2/all",
+                success:(posRes1)=>{
+                    console.log(posRes1);
+                    /**************************************/
+                        $.ajax({
+                            method:"GET",
+                            url:"https://www.w3schools.com/angular/customers.php",
+                            success:(posRes2)=>{
+                                console.log(posRes2);
+                            },
+                            error:(errRes)=>{
+                                console.log(errRes);
+                            }
+                        })
+                    /**************************************/
+                },
+                error:(errRes)=>{
+                    console.log(errRes);
+                }
+            })
+        </script>
+    </body>
+</html>
+-->
+
+<!--
+    JSON Server
+        - JSON Server is the ligth weight server.
+        - JSON Server used to develop the rest apis.
+        - we will consume rest apis by using AJAX.
+        - JSON Server supports only JSON Data.
+        - we will deploy JSON files in JSON Server.
+        - we will install JSON Server by using following    
+          command.
+          > npm install-g json-server@latest 
+            - "npm" stands for node packaging manager.
+            - "npm" is the integrated tool of node js.
+            - "-g" stands for global installation
+        - current version of json-server is
+            Ex.
+                json-server@0.15.0
+        - we will deploy json files by using following command
+            > json-server --watch sample.json
+        - where "sample.json" file is the name of the json file.
+        - we will test rest apis by using Postman.
+        - "Postman" is the software used to test the Rest API'S.
+-->
+{
+  "products": [
+    {
+      "id": 1,
+      "p_id": 111,
+      "p_name": "p_one",
+      "p_cost": 10000
+    },
+    {
+      "id": 2,
+      "p_id": 222,
+      "p_name": "p_two",
+      "p_cost": 20000
+    },
+    {
+      "id": 3,
+      "p_id": 333,
+      "p_name": "p_three",
+      "p_cost": 30000
+    },
+    {
+      "id": 4,
+      "p_id": 444,
+      "p_name": "p_four",
+      "p_cost": 40000
+    },
+    {
+      "id": 5,
+      "p_id": 555,
+      "p_name": "p_five",
+      "p_cost": 50000
+    }
+  ]
+}
+
+
+
+
+Rest API Calls
+--------------
+	- we will test Rest API Calls Developed by
+	  json-server with Postman.
+
+=> http://localhost:3000/products       (GET)
+
+	- it will return all products.
+
+=> http://localhost:3000/products/1      (GET)
+
+	- it will return particular product 
+	  information based on ID.
+
+	- where "1" is product ID.
+
+=> http://localhost:3000/products   (POST)
+
+	- above request behaves like POST Request.
+
+	- above request accepts the JSON Object
+	  as "Request Body".
+
+	Ex.
+		{
+	
+		   "id":6,
+	
+		   "p_id":666,
+	
+		   "p_name":"product_six",
+	
+		   "p_cost":600000
+
+		}
+
+	- above request saves the 6th record to
+	  "products.json" file with the help of
+	  json-server.
+
+
+=> http://localhost:3000/products/6   (PUT)
+	
+	- above request behaves like PUT Request.
+
+	- in general we will use PUT Request for
+	  updation purpose.
+
+	- above request accepts the JSON Object as
+	  POST Parameter.
+
+	Ex.
+		{
+	
+		   "id":6,
+	
+		   "p_id":666,
+	
+		   "p_name":"p_six",
+	
+		   "p_cost":60000
+		
+}
+
+	 - automatically 6th record will be updated
+
+
+=> http://localhost:3000/products/6   (DELETE)
+
+	- above request behaves like DELETE Request.
+	- above request will delete 6th record from
+	  products.json file.
+	- in general we will use DELETE Requests to
+	  delete particular resource from 
+	  "products.json".
+
+=> http://localhost:3000/products?p_cost_gte=30000
+
+	- getting the p_cost greater than or equal
+	  to 30000
+
+
+=> http://localhost:3000/products?
+   p_cost_gte=30000&p_cost_lte=40000
+
+	- we are getting between 30000 & 40000
+	  p_cost records
+
+
+=> http://localhost:3000/products?p_cost_ne=30000
+
+	- it will excludes the "30000" p_cost record
+
+=> http://localhost:3000/products?q=10000
+
+	- q stands for search
+
+	- it will search the "10000" p_cost record
+
+=> http://localhost:3000/products?
+	_sort=p_cost&_order=desc
+
+	- it will sort the data based on p_cost and
+	  order in descending order
+
+
+8th (holiday)
+
+(9-8-2019)
+
+
+<!--
+    filter(-,-,-)
+        - filter(-,-,-) used to create the new array based on condition
+
+<!DOCTYPE html>
+<html>
+    <script>
+       console.log(
+            [10,20,30,40,50].filter(function(element,index,array){
+                return element>=20;
+            })
+       );  //[20, 30, 40, 50]
+    </script>
+</html>
+-->
+<!--
+    map(-,-,-)
+        - this function used to manipulate the array elements
+
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log(
+            [10,20,30,40,50].map(function(element,index,array){ 
+                return element*2;
+            })
+        );  //[20, 40, 60, 80, 100]
+
+        let arr1 = [10,20,30,40,50];
+        let arr2 = [60,70,80,90,100];
+        let arr3 = arr1.map(function(element,index,array){
+            return element+arr2[index];
+        });  
+        console.log(arr3);   //[70, 90, 110, 130, 150]
+
+        let arr4 = [1,2,3,4,5];
+        let arr5 = [6,7,8,9,10];
+        let arr6 = arr4.map(function(element,index,array){
+            return [element,arr5[index]];
+        });
+        console.log(arr6); //[[1,6],[2,7],[3,8],[4,9],[5,10]]
+
+    </script>
+</html>
+-->
+
+<!--
+    reduce(-,-,-)
+        - this function used to find the sum of array elements
+        - summation happens from left to rigth
+
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log(
+            [1,2,3,4,5].reduce(function(arg1,arg2){
+                return arg1+arg2;
+            })
+        );  //15
+
+        console.log( 
+            ["welcome","to","ES6"].reduce(function(arg1,arg2){
+                return arg1+" "+arg2;
+            })
+        );  //welcome to ES6
+    </script>
+</html>
+-->
+
+
+<!--
+    reduceRight(-,-)
+        - it is used to find the summation of array elements from right to left
+
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log(
+            ["ReactJS","to","Welcome"].reduceRight(function(arg1,arg2){
+                return arg1+" "+arg2;
+            })
+        );  //Welcome to ReactJS
+
+        console.log(
+            [1,2,3,4,5].reduceRight(function(arg1,arg2){
+                return arg1+arg2;
+            })
+        );  //15
+    </script>
+</html>
+-->
+
+<!--
+    forEach(-,-,-)
+        - this function used to iterate the array elements
+
+<!DOCTYPE html>
+<html>
+    <script>
+        [1,2,3,4,5].forEach(function(element,index,array){
+            console.log(element);   //1 2 3 4 5
+        });
+
+        [{"id":1,"name":"TV"},
+         {"id":2,"name":"Laptop"},
+         {"id":3,"name":"Mobile"},
+         {"id":4,"name":"Tab"},
+         {"id":5,"name":"Desktop"}]
+                .forEach(function(element,index,array){
+            console.log(element.id,element.name);
+         });  //1 "TV"    2 "Laptop"   3 "Mobile"   4 "Tab"   5 "Desktop"
+
+    </script>
+</html>
+-->
+
+<!--
+    some(-,-,-)
+        - it is used to check the element presence in array
+        - it is a boolean method
+        - if element present it will return "true" else "false"
+
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log(
+            [1,2,3,4,5].some(function(element,index,array){
+                return element === 3;
+            })
+        );  //true
+    </script>
+</html>
+-->
+
+
+<!--
+    every(-,-,-)
+        - this function used to check the each and every element in array based on condition
+
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log(
+            [10,20,30,40,50].every(function(element,index,array){   
+                return element>=10;
+            })
+        );  //true
+    </script>
+</html>
+-->
+
+<!--
+    includes(-)
+        - in general we will use this function for quick search process.
+
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log(
+            ["Angular","React","NodeJS","MongoDB","VueJS"]
+                .includes("React")
+        );   //true
+
+        console.log( [10,20,30,40,50].includes(30) );  //true
+    </script>
+</html>
+-->
+
+<!--
+    from(-)
+        - this function used to convert the "String" to
+          equalent arrays.
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log(
+            Array.from("ReactJS")
+        );   //["R", "e", "a", "c", "t", "J", "S"]
+    </script>
+</html>
+-->
+
+<!--
+    for...in
+        - this loop used to iterate the JSON Objects
+
+<!DOCTYPE html>
+<html>
+    <script>
+        for(let key in {"id":1,"name":"TV","cost":100000}){
+            console.log(key);
+        };   //id    name    cost
+    </script>
+</html>
+-->
+
+
+<!--
+    length
+    ------
+        - this property used to find the length of array
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,3,4,5];
+        console.log(arr.length);   //5
+        console.log(arr[4]);       //5
+        console.log(arr[5]);       //undefined
+        arr.length=3;
+        console.log(arr);          //[1, 2, 3]
+        console.log(arr[2]);       //3
+        console.log(arr[3]);       //undefined
+    </script>
+</html>
+-->
+
+<!--
+    adding and removing elements from array
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [20,30];
+        console.log(arr);   // [20, 30]
+        arr.unshift(10);
+        console.log(arr);   //[10, 20, 30]
+        arr.push(40);
+        console.log(arr);   //[10, 20, 30, 40]
+        arr.shift();
+        console.log(arr);   //[20, 30, 40]
+        arr.pop()
+        console.log(arr);   //[20, 30]
+    </script>
+</html>
+-->
+
+<!--
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,3,4,5,6,7,8,9,10];
+        console.log(arr);   //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        arr.splice(4,2);
+        console.log(arr);   //[1, 2, 3, 4, 7, 8, 9, 10]
+        arr.splice(3,2);
+        console.log(arr);   //[1, 2, 3, 8, 9, 10]
+        arr.splice(5,1);
+        console.log(arr);   //[1, 2, 3, 8, 9]
+        arr.splice(0,1);   
+        console.log(arr);   //[2, 3, 8, 9]
+        arr.splice(0,0,1);
+        console.log(arr);   //[1, 2, 3, 8, 9]
+        arr.splice(3,0,4,5,6,7);
+        console.log(arr);   //[ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+        arr.splice(9,0,10);
+        console.log(arr);   //[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+    </script>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,3,4,5,6,7,8,9,10];
+        console.log(arr);  // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+        console.log( arr.slice(4,6) );   //[ 5, 6 ]
+        console.log( arr.slice(1,3) );   //[ 2, 3 ]
+    </script>
+</html>
+
+
+
+(10&11 sunday)
+
+
+(12-08-2019)
+
+
+
+<!--
+    find(-,-,-)
+        - it is used to find the particular element in array.
+        - if element found it will return "same element" else it will return "undefined"
+
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log(
+            [1,2,3,4,5].find(function(element,index,array){
+                return element === 5;
+            })
+        );   //5
+    </script>
+</html>
+-->
+
+
+
+<!--
+    findIndex(-,-,-)
+        - this function will find the "index" of particular element
+          in array.
+        - if any element unknown it will return "-1"
+
+<!DOCTYPE html>
+<html>
+    <script>
+        console.log( [1,2,3,4,5]
+                .findIndex(function(element,index,array){
+                    return element === 3;
+        }));  //2
+    </script>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr =  [10,20,30,40,50];
+        let i =arr.findIndex(function(element){
+            return element === 30;
+        });
+        arr.splice(i,1);
+        console.log(arr);   //[10, 20, 40, 50]
+    </script>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [{'name':'A'},
+                   {'name':'B'},
+                   {'name':'C'},
+                   {'name':'D'},
+                   {'name':'E'}];
+        let i = arr.findIndex(function(element){
+            return element.name === "D";
+        });
+        arr.splice(i,1);
+        console.log(arr);
+    </script>
+</html>
+-->
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        console.log( [10,20,30,10,20,30].lastIndexOf(10) );  //3
+        console.log( [10,20,30,10,20,30].lastIndexOf(20) );  //4
+        console.log( [10,20,30,10,20,30].lastIndexOf(30) );  //5
+        console.log( [10,20,30,10,20,30].lastIndexOf(10,3) );  //3
+        console.log( [10,20,30,10,20,30].lastIndexOf(10,2) );  //0
+        console.log( [10,20,30,10,20,30].lastIndexOf(60,2) ); //-1
+    </script>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        console.log( ["welcome","to","reactjs"].toString() );
+        //welcome,to,reactjs
+        console.log( ["welcome","to","reactjs"].join(" ") );
+        //welcome to reactjs
+    </script>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+       console.log( ["B","A","D","C"].sort() );  
+       //[ "A", "B", "C", "D" ]
+       console.log( ["B","A","D","C"].sort().reverse() ); 
+       //[ "D", "C", "B", "A" ]
+       console.log( [3,1,2,4].sort() );  //[ 1, 2, 3, 4 ]
+       console.log( [3,1,2,4].sort().reverse() );  //[ 4, 3, 2, 1 ]
+    </script>
+</html>
+
+
+
+(13-08-2019)
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,3,4,5];
+        delete arr[4];
+        console.log(arr);       //[1, 2, 3, 4, empty]
+        console.log(arr.length);//5
+        console.log(arr[4]);    //undefined
+    </script>
+</html> -->
+
+<!--
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,3,4,5,6,7,8,9,10];
+        console.log(arr);   //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        arr.fill(100,3,5);
+        console.log(arr);  //[1, 2, 3, 100, 100, 6, 7, 8, 9, 10]
+        arr.fill(200,8,10);
+        console.log(arr);  //[1, 2, 3, 100, 100, 6, 7, 8, 200, 200]
+        arr.fill(1,0);
+        console.log(arr);  //[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    </script>
+</html>
+-->
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let matrix = [ [1,2,3],
+                       [4,5,6],
+                       [7,8,9] ];
+        console.log(matrix);
+        console.log(matrix.flat());  //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+    </script>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [[1],[1,[[[[[[[[[[1]]]]]]]]]]]];
+        console.log( arr.flat(Infinity).reduce((arg1,arg2)=>{
+            return arg1+arg2;
+        }));  //3
+    </script>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let arr1 = [1,2,3,4,5];
+        let arr2 = ["one","two","three","four","five"];
+
+        let arr3 = arr1.flatMap(function(element,index){
+            return [element,arr2[index]];
+        });
+        console.log(arr3);   //[1, "one", 2, "two", 3, "three", 4, "four", 5, "five"]
+    </script>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [0,1,2,3,4,5,6,7,8,9];
+        //console.log( arr.copyWithin(1) );  //[0, 0, 1, 2, 3, 4, 5, 6, 7, 8]
+        //console.log( arr.copyWithin(2) );   //[0, 1, 0, 1, 2, 3, 4, 5, 6, 7]
+        //console.log( arr.copyWithin(4) );    // [0, 1, 2, 3, 0, 1, 2, 3, 4, 5]
+        //console.log( arr.copyWithin(1,3) );   //[0, 3, 4, 5, 6, 7, 8, 9, 8, 9]
+        //console.log( arr.copyWithin(2,5) );    //[0, 1, 5, 6, 7, 8, 9, 7, 8, 9]
+        console.log( arr.copyWithin(1,3,5) ); 
+    </script>
+</html>
+
+
+
+(14-8-2019)
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,3,4,5];
+        console.log(arr.length);  //5
+        arr[5]=6;
+        console.log(arr.length);  //6
+        arr[-1]=-1;
+        console.log(arr.length);  //6
+        console.dir(arr);  /*
+                            0: 1
+                            1: 2
+                            2: 3
+                            3: 4
+                            4: 5
+                            5: 6
+                            -1: -1
+                            */
+        arr[-1]=-10;
+        console.dir(arr);  /*
+                            0: 1
+                            1: 2
+                            2: 3
+                            3: 4
+                            4: 5
+                            5: 6
+                            -1: -10
+                            */
+        arr[0.5] = 3;
+        console.log(arr.length);  //6
+        console.dir(arr);   /*
+                                0: 1
+                                0.5: 3
+                                1: 2
+                                2: 3
+                                3: 4
+                                4: 5
+                                5: 6
+                                -1: -10
+                            */
+    </script>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let arr = [2,1,4,3,5,6];
+        //first min
+        console.log( arr.sort()[0] );  //1
+        //2nd min
+        console.log( arr.sort()[1] );  //2
+        //first max
+        console.log(arr.sort().reverse()[0]);  //6
+        //2nd max
+        console.log(arr.sort().reverse()[1]);  //5
+    </script>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,1,2,3,4,5,1,2];
+        arr.forEach(function(element){
+            console.log(arr.indexOf(element));
+        });   //0 1 0 1 4 5 6 0 1
+    </script>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script>
+        // let arr = [1,2,1,2,3,4,5,1,2];
+        // console.log(
+        //     arr.filter(function(element,index){
+        //         return arr.indexOf(element) === index;
+        //     })
+        // );  //[1, 2, 3, 4, 5]
+
+
+        // let arr = [1,2,1,2,3,4,5,1,2];
+        // let obj = new Set(arr);
+        // console.log(obj);  //{1, 2, 3, 4, 5}
+        // let arr1 = [...obj];
+        // console.log(arr1);  //[1, 2, 3, 4, 5]
+
+        let arr = [1,2,1,2,3,4,5,1,2];
+        console.log(_.uniq(arr));   //[1, 2, 3, 4, 5]
+    </script>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,3,4,5,6,7,8,9,10];
+        console.log([...arr.slice(5),...arr.slice(0,5)]); //[6, 7, 8, 9, 10, 1, 2, 3, 4, 5]
+
+        let arr1 = [...arr.slice(0,5)];
+        let res1 = arr1.reduce(function(arg1,arg2){
+            return arg1+arg2;
+        });
+        let arr2 = [...arr.slice(5)];
+        let res2 = arr2.reduce(function(arg1,arg2){
+            return arg1+arg2;
+        });
+        console.log([res1,res2]);  //[15, 40]
+    </script>
+</html>
+
+
+(15th holiday)
+
+
+
+(16-08-2019)
+
+
+
+
+
+<!docTYPE html>
+<html>
+    <script>
+        let arr = [];
+        arr[123] = 123;
+        console.log(arr.length);   //124
+        console.log(arr[0]);       //undefined
+    </script>
+</html>
+-->
+
+<!--
+    => Jazz,Blues
+    => append the Rock-n-Roll
+    => Replace the Blues with Classics and remove Jazz
+    => append at begining "Rap" "Reggae"
+--->
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = ["Jazz","Blues"];
+        console.log(arr);   //["Jazz", "Blues"]
+        arr.push("Rock-n-Roll");
+        console.log(arr);   //["Jazz", "Blues", "Rock-n-Roll"]
+        arr.splice(0,2,"Rap","Raggie","Classics");
+        console.log(arr);  //["Rap", "Raggie", "Classics", "Rock-n-Roll"]
+    </script>
+</html>
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9]
+        ];
+        console.log( arr[1][1] );   //5
+        arr.forEach(function(element,index){
+             element.forEach(function(el,idx){
+                console.log(el);
+             });
+        });
+        console.log(arr.flat(1));  //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+    </script>
+</html> 
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = new Array();
+        console.log(arr);  //[]
+        console.log(arr.length);  //0
+        
+        let arr1 = new Array(2);   
+        console.log(arr1.length);   //2
+        console.log(arr1[0],arr1[1]); //undefined undefined
+
+
+        let arr2 = new Array("Hello_1","Hello_2","Hello_3",4);
+        console.log(arr2);
+        for(let x of arr2){
+            console.log(x);
+        }   //Hello_1   Hello_2   Hello_3  4
+
+        let arr3 = new Array(1,2,3);
+        console.log(arr3);   //[1, 2, 3]
+        console.log(arr3.length);  //3
+
+        let arr4 = new Array(1);
+        console.log(arr4.length);   //1
+        arr4[10]=1;
+        console.log(arr4);
+        console.log(arr4.length);  //11
+    </script>
+</html> 
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        //alert(1+"1");  //11
+        console.log([1,2]+"1");  //1,21
+    </script>
+</html>
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,3];
+        console.log(arr);  //[1, 2, 3]
+        console.log(String(arr));  //1,2,3
+        console.log(arr.toString());  //1,2,3
+        console.log( typeof(String(arr)) );  //string
+        console.log( typeof(String(arr))==="string" );  //true
+    </script>
+</html> 
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2];
+        console.log(arr.length);  //2
+        arr.push( function(){console.log(this)} );
+        console.log(arr[0]);   //1
+        console.log(arr[1]);   //2
+        arr[2]();   // [1, 2, ƒ]
+    </script>
+</html>
+
+
+
+(17&18 sunday)
+
+
+(19-8-2019)
+
+saved in jason-server above file
+
+
+
+
+(20-08-2019)
+
+MATRIX TRANSPOSE:
+
+
+ function myFun(array, arrayLength) {
+     var newArray = [];
+     for (var i = 0; i < array.length; i++) {
+         newArray.push([]);
+     }
+     for (var i = 0; i < array.length; i++) {
+         for (var j = 0; j < arrayLength; j++) {
+             newArray[j].push(array[i][j]);
+         }
+     }
+     return newArray;
+ };
+ console.log(
+     myFun([
+         [1, 2, 3],
+         [4, 5, 6],
+         [7, 8, 9]
+     ], 3)
+ );
+
+
+
+<!DOCTYPE html>
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <script>
+      console.log( _.zip.apply(_, [[1,2,3], [1,2,3], [1,2,3]]) );
+  </script>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+  <script>
+    var i,j;-
+    for(var i=0;i<=5;i++){
+      for(var j=0;j<=i;j++){
+        document.write("*");
+      }
+      document.write("<br>");
+    }
+  </script>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+  <script>
+    for(var i=5;i>=1;i--){
+        for(var j=0;j<=i;j++){
+          document.write("*");
+        }
+        document.write("<br>");
+    }
+  </script>
+</html> 
+
+
+
+<!DOCTYPE html>
+<!-- <html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script>
+      console.log( _.zip.apply(_,[[1,2],[3,4]]) );
+    </script>
+</html> 
+
+
+<!DOCTYPE html>
+<html>
+  <script>
+    for(var i=0;i<5;i++){
+        for(var j=0;j<=i;j++){
+          document.write("*");
+        }
+        document.write("<br>");
+    }
+  </script>
+</html> 
+
+ <!DOCTYPE html>
+<html>
+    <script>
+      for(var i=5;i>=1;i--){
+          for(j=0;j<=i;j++){
+              document.write("*");
+          }
+          document.write("<br>");
+      }
+    </script>
+</html>
+
+
+(21-08-2019)
+
+
+/*
+    constructor functions
+    ---------------------
+        - before ES6, we will create "classes" in javascript by using constructor functions.
+
+        - from "ES6" onwards we have "classes" concept introduced by using "class" keyword.
+
+        - we will create object to constructor functions by using "new" keyword.
+
+        - we will implement inheritance in constructor functions by "prototype" property.
+
+        - in constructor functions "all properties"
+          should start with "this" keyword.
+
+          Syntax
+          -------
+          function functionname(constructor parameters){
+              properties and functions with this keyword
+          }
+          let obj = new functionname(arguments);
+*/
+ function class_one(){
+     this.sub_one = "ReactJS";
+     this.sub_two = "NodeJS";
+     this.sub_three = "MongoDB";
+     this.getSubOne = function(){
+         return this.sub_one;
+     };
+     this.getSubTwo = function(){
+         return this.sub_two;
+     };
+     this.getSubThree = function(){
+         return this.sub_three;
+     };
+ };
+ let obj = new class_one();
+ console.log( obj.getSubOne(),
+              obj.getSubTwo(),
+//              obj.getSubThree() ); //ReactJS NodeJS MongoDB
+
+//class with constructor parameters
+ function class_one(arg1,arg2,arg3){
+     this.sub_one = arg1;
+     this.sub_two = arg2;
+     this.sub_three = arg3;
+ };
+ let obj1 = new class_one("Angular","NodeJS","MySQL");
+ console.log(obj1.sub_one,obj1.sub_two,obj1.sub_three);
+ let obj2 = new class_one("ReactJS","NodeJS","MongoDB");
+ console.log(obj2.sub_one,obj2.sub_two,obj2.sub_three);
+ let obj3 = new class_one("VueJS","NodeJS","SQLServer");
+ //console.log(obj3.sub_one,obj3.sub_two,obj3.sub_three);
+
+//create the relationship between two classes
+ function class_one(){
+     this.myFun = function(){
+         return new class_two();
+     };
+ }; 
+ function class_two(){
+     this.myFun = function(){
+         return "welcome to constructor functions";
+     };
+ };
+ console.log( new class_one().myFun().myFun() );
+
+//pass one class reference to another class constructor
+ function class_one(obj1,obj2,obj3){
+     this.s_obj = obj1;
+     this.t_obj = obj2;
+     this.f_obj = obj3;
+ };
+ function class_two(){
+     this.getSubOne = function(){
+         return "ReactJS";
+     };
+ };
+ function class_three(){
+     this.getSubTwo = function(){
+         return "NodeJS";
+     };
+ };
+ function class_four(){
+     this.getSubThree = function(){
+             return "MongoDB";
+    };
+ };
+ let obj = new class_one( new class_two(),
+                          new class_three(),
+                         new class_four() );
+console.log( obj.s_obj.getSubOne(),
+              obj.t_obj.getSubTwo(),
+            obj.f_obj.getSubThree() );
+
+//function return class reference
+function class_one(){
+    this.myFun = function(){
+        return "welcome to constructor functions";
+    };
+};
+
+function myFun(){
+    return new class_one();
+};
+console.log( myFun().myFun() );
+
+
+
+(22-08-2019)
+
+
+
+
+<!--
+    prototype
+    ---------
+        - "prototype" is the JavaScript Object(Property).
+        - "prototype" is used to implement the inheritance.
+        - "__proto__" is the predefined property, used to create the objects to constructor functions
+-->
+ <script>
+    function class_one(){
+    };
+    console.dir(class_one);
+</script> 
+
+<script>
+    var class_one = function(){
+    }
+    console.dir(class_one);
+</script>
+
+<script>
+    var class_one = function(){}
+    class_one.prototype.getSubOne = function(){
+        return "ReactJS";
+    };
+    class_one.prototype.getSubTwo = function(){
+        return "NodeJS";
+    };
+    class_one.prototype.getSubThree = function(){
+        return "MongoDB";
+    };
+    var obj1 = new class_one();
+    console.log( obj1.getSubOne(),
+                 obj1.getSubTwo(),
+                 obj1.getSubThree() );
+</script> 
+
+ <script>
+    var class_one = function(){}
+    class_one.prototype.sub = "ReactJS";
+    var obj = new class_one();
+    console.log(obj.sub);     //ReactJS
+</script> 
+
+ <script>
+    var class_one = function(arg1,arg2,arg3){
+        this.sub_one = arg1;
+        this.sub_two = arg2;
+        this.sub_three = arg3;
+    };
+    class_one.prototype.getSubOne = function(){
+        return this.sub_one;
+    };
+    class_one.prototype.getSubTwo =function(){
+        return this.sub_two;
+    };
+    class_one.prototype.getSubThree = function(){
+        return this.sub_three;
+    };  
+    var obj1 = new class_one("Angular","NodeJS","MySQL");
+    console.log( obj1.getSubOne(),
+                 obj1.getSubTwo(),
+                 obj1.getSubThree() );
+    var obj2 = new class_one("ReactJS","NodeJS","MongoDB");
+    console.log( obj2.getSubOne(),
+                 obj2.getSubTwo(),
+                 obj2.getSubThree());
+</script> 
+
+<script>
+    var class_one = function(arg1){
+        this.var_one = arg1;
+    };
+    class_one.prototype.var_two = this.var_one;
+    var obj1 = new class_one("Hello");
+    console.log(obj1.var_two);   //undefined
+    //it's not possible to initilize the dynamic variables(var_two) with class members(var_one)
+</script> 
+
+<script>
+    // var add = function(num1,num2,num3){
+    //     return num1+num2+num3;
+    // };
+    // console.log( add(10,10,10) );
+
+    //Currying
+    //making the complex logics to simple logics by using nested functions called as Currying
+    var add = function(num1){
+        return function(num2){
+            return function(num3){
+                return num1+num2+num3;
+            };
+        };
+    };
+    console.log( add(10)(10)(10) );
+</script>
+
+
+(23-08-2019)
+
+
+
+
+//call() 
+//call() is the predefined function in javascript
+//call() function used to establish the relation between objects in heap memory.
+ let obj = {
+     arg1:1,
+     arg2:2,
+     arg3:3
+ };
+ let fun_one = function(arg4){
+     return this.arg1+this.arg2+this.arg3+arg4;
+ };
+ console.log( fun_one.call(obj,4) );   //10
+ console.log( fun_one.call(obj,5));    //11
+
+
+
+ let obj = {
+     arg1:1
+ };
+ let fun_one = function(arg2,arg3,arg4){
+     return this.arg1+arg2+arg3+arg4;
+ };
+ console.log( fun_one.call(obj,2,3,4) );
+ console.log( fun_one.call(obj,2,3,5) );
+ let arr = [2,3,6];
+ console.log( fun_one.apply(obj,arr) );
+
+
+
+ let obj = {
+     arg1 : 1
+ };
+ let fun_one = function(arg2){
+     return this.arg1 + arg2;
+ };
+ let final = fun_one.bind(obj);
+ console.log( final(1) );
+ console.log( final(2) );
+
+
+ <script>
+    let obj1 = {
+        arg1 : 1
+    };
+    
+    let fun_one = function(arg2,arg3,arg4){
+        return this.arg1+arg2+arg3+arg4;
+    };
+    let final = fun_one.bind(obj1);
+    console.log( final(1,2,3) );
+</script> 
+<script>
+    let Parent = function(){};
+    Parent.prototype.display = function(){
+        return "Parent";
+    };
+
+    let Child = function(){};
+    Child.prototype = Object.create(Parent.prototype);
+     Child.prototype.display = function(){
+         return "Child";
+     };
+
+
+    let Subchild = function(){};
+    Subchild.prototype = Object.create(Child.prototype);
+     Subchild.prototype.display = function(){
+         return "Sub Child";
+    };
+
+     let obj1 = new Parent();
+     console.log( obj1.display() );
+
+     let obj2 = new Child();
+     console.log( obj2.display() );
+
+    let obj3 = new Subchild();
+    console.log( obj3.display() );
+</script>
+
+
+
+
+
+(26-08-2019)
+
+
+//Higher Order Functions also called as callback function
+//we can pass "one function" as argument to "another function"
+//"passed function" to another function acting as callback.
+//in most of the cases arrow functions behaves like callbacks.
+
+ function fun_one(){
+     return "i am from fun one !!!";
+ };
+ function fun_two(callback){
+     return callback();
+ };
+ console.log( fun_two( fun_one ) );  //i am from fun one !!!
+
+
+ function add(num1,num2){
+     return num1+num2;
+ };
+ function sub(num1,num2){
+     return num1-num2;
+ };
+ function multiply(num1,num2){
+     return num1*num2;
+ };
+ function divide(num1,num2){
+     return num1/num2;
+ };
+ function calc(num1,num2,callback){
+     return callback(num1,num2);
+ };
+ console.log( calc(10,10,add) );
+ console.log( calc(10,10,sub) );
+ console.log( calc(10,10,multiply) );
+ console.log( calc(10,10,divide) );
+
+
+ console.log(
+         [10,30,20,50,40].sort(function(a,b){
+             if(a>b)
+                 return 1;
+             else
+                 return -1;
+         })
+ );
+
+ console.log(
+     [{"id":1,
+       "name":"Hello_1"},
+      {"id":5,
+       "name":"Hello_5"},
+      {"id":2,
+       "name":"Hello_2"},
+     {"id":4,
+       "name":"Hello_4"},
+      {"id":3,
+      "name":"Hello_3"}].sort(function(arg1,arg2){
+             if(arg1.name<arg2.name)
+                     return 1;
+             else
+                     return -1
+       })
+ );
+
+
+//import fs module
+//fs stands for file system
+//fs module is the es6 module (node inbuilt module)
+//fs module used to read the data from files
+//require() is the predefined function used to import the modules
+ var fs = require("fs");
+ fs.readFile("./sample.txt",function(err,data){
+     if(err)
+         console.log(err);
+     else
+         console.log(data.toString())
+ });
+
+var fs = require("fs");
+fs.appendFile("./sample.txt","ReactJS",(err)=>{
+    if(err)
+        console.log(err)
+    else
+        console.log("Appended Successfully !!!");
+});
+
+
+
+
+(27-08-2019)
+
+
+
+ <!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="parent">
+            parent
+            <div id="child1">
+                child1
+                <div id="subchild">
+                    subchild
+                </div>
+            </div>
+            <div id="child2">
+                child2
+            </div>
+        </div>
+    </body>
+    <script>
+         $("#parent").click(function(){
+             console.log("parent");
+         });
+         $("#child1").click(function(){
+             console.log("child1");
+         });
+         $("#child2").click(function(){
+             console.log("child2");
+         });
+         $("#subchild").click(function(){
+             console.log("subchild");
+         });
+
+        Event Capturing
+        var p = document.querySelector("#parent");
+        p.addEventListener("click",function(){
+            console.log("parent");
+        },true);
+
+         var c1 = document.querySelector("#child1");
+         c1.addEventListener("click",function(){
+             console.log("child1");
+         },true);
+
+        var s = document.querySelector("#subchild");
+        s.addEventListener("click",function(){
+            console.log("subchild");
+        },true);
+
+    </script>
+</html> 
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        lexical scope
+        if any member available in particular area/scope called as lexical scope
+        let i = 100;
+        let myFun = function(){
+            console.log(i);
+        };
+        console.log(i);
+        myFun();
+    </script>
+</html> 
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let i = 100;
+        let myFun;
+        if(true){
+            myFun = function(){
+                console.log(i);
+            }
+        };
+        myFun();
+    </script>
+</html>
+            <!-- Closures -->
+
+
+
+(28-08-2019)
+
+
+
+<!--
+    closure
+    if any inner function accessing the "outer function members" as well as "lexical scope members" called as closure
+-->
+ <html>
+    <script>
+        let fun_one = function(){
+            let i = 10;
+            let j = 20;
+            return function(){
+                console.log(i);
+                console.log(j);
+            };
+        };
+        console.dir(fun_one());  //Closure (fun_one) {i: 10, j: 20}
+    </script>
+</html> 
+
+ <html>
+    <script>
+        //lexical scope member
+        let i = 10;
+        let fun_one = function(){
+            return function(){
+                console.log(i);
+            };
+        };
+        console.dir(fun_one());
+    </script>
+</html> 
+
+ <html>
+    <script>
+        let fun_one = function(){
+            let i = 10;
+            return function(){
+               let j = 20; 
+               console.log(i);   //Closure (fun_one) {i: 10}
+               return function(){
+                  console.log(j);  //0: Closure {j: 20
+                        //1: Closure (fun_one) {i: 10}
+               };
+            }
+        };
+        console.dir(fun_one());
+        console.dir(fun_one()());
+    </script>
+</html> 
+
+ <html>
+    <script>
+        for(var i=0;i<3;i++){
+            setTimeout(function(){
+                console.log(i);
+            },5000);   //3  3   3
+        };
+        //var keyword won't maintaines separate memory for var keyword.
+    </script>
+</html> 
+
+ <script>
+    for(let i=0;i<3;i++){
+        setTimeout(function(){
+            console.log(i);      //0   1   2
+        },5000);
+    };
+</script> 
+
+ 
+<script>
+    for(var i=0;i<3;i++){
+        (function(i){
+            setTimeout(function(){
+                console.log(i);  
+            },5000)
+        })(i);    //   0    1    2
+    };
+</script>
+
+
+
+ <script>
+    (function(){
+        console.log("welcome to IIFE");   //welcome to IIFE
+    })();
+</script> 
+
+
+<script>
+    (function(a,b){
+        console.log(a+b);
+        console.log(a-b);
+        console.log(a*b);
+        console.log(a/b);
+    })(10,20);
+</script>
+
+
+
+
+(29-08-2019)
+
+
+//the function without name called as anonymous function
+//anonymous functions also called as arrow functions
+//we will represent arrow functions by using "=>" symbol.
+//arrow functions are more secured compared to named functions
+//arrow functions utilizes the heap memory efficiently.
+
+ let fun_one = ()=>{
+     return "welcome to arrow functions";
+ };
+ console.log(fun_one);    //[Function: fun_one]
+ console.log(fun_one());  //welcome to arrow functions
+
+ let fun_one = ()=>{
+     let x = 1;
+     let y = 2;
+     return [x,y] = [y,x];
+ };
+ console.log(fun_one().toString());   [2,1]
+
+
+//array destruction
+ let fun_one = ()=>{
+     let arr = [1,2,3,4];
+     return [[arr[0]],[arr[1]],[arr.slice(2)]];
+ };
+ console.log( fun_one() );  
+[ [ 1 ], [ 2 ], [ [ 3, 4 ] ] ]
+
+
+
+ let fun_one = ()=>{
+     return (arg1,arg2,arg3)=>{
+         return `${arg1} <=> ${arg2} <=> ${arg3}`;
+     };
+ };
+
+ console.log( fun_one );   //[Function: fun_one]
+ console.log( fun_one() ); //[Function]
+ console.log( fun_one()("ReactJS","NodeJS","MongoDB") );
+ //ReactJS <=> NodeJS <=> MongoDB
+ console.log( fun_one()("Angular","NodeJS","FireBase"));
+// //Angular <=> NodeJS <=> FireBase
+
+
+ let fun_one = ()=>{
+     let [arg1,arg2,...arg3] = [1,2,3,4];
+     //return `${arg1}${arg2}${arg3}`;
+     return [arg1,arg2,arg3];    //[ 1, 2, [ 3, 4 ] ]
+ };
+ console.log(fun_one());   //123,4
+
+let arr = [];
+for(let i=0;i<5;i++){
+    arr.push(()=>{return i;});
+};
+arr.forEach((el)=>{
+    console.log(el());
+});
+
+
+
+
+
+
+
+(3-09-2019)
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let x = {};
+        let key1 = {};
+        x[key1] = "a";
+        let key2 = {};
+        x[key2]="b";
+        console.log(x);
+        //we can't add more than one json object as key
+    </script>
+</html>
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        let map = new Map();
+        let key1 = {};
+        let key2 = {num:1};
+        map.set(key1,"a").set(key2,"b").set(key1,"c");
+        console.log(map);  //Map(2) {{…} => "c", {…} => "b"}
+
+
+        //get the keys
+        let obj1 = map.keys();
+        console.log(obj1.next());  //{value: {…}, done: false}
+        console.log(obj1.next());  //{value: {…}, done: false}
+        console.log(obj1.next());  //{value: undefined, done: true}
+
+        //get the values
+        let obj2 = map.values();
+        console.log(obj2.next());  //{value: "c", done: false}  
+        console.log(obj2.next());  //{value: "b", done: false}
+        console.log(obj2.next());  //{value: undefined, done: true}
+
+
+
+        //iterate the map
+        for(let [k,v] of map.entries()){
+            console.log(k,v);   //{} "c"
+                                //{num: 1} "b"
+        };
+
+        //check the existence
+        console.log(map.has(key1));   //true
+
+        //delete key1
+        console.log(map.delete(key1));  //true
+
+        //clear
+        map.clear();
+
+        console.log(map);  //Map(0) {}
+
+    </script>
+</html> 
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        {
+            let x = {num:1};
+
+            var weakMap = new WeakMap();
+            weakMap.set(x,"x");
+        }
+        console.log(weakMap);
+    </script>
+</html> 
+
+
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let set = new Set();
+        set.add(1).add(2).add(3).add(1).add(2);
+        console.log(set);
+
+        console.dir(set);
+
+        for(let [k,v] of set.entries()){
+            console.log(k,v);
+        };
+
+        let arr = [...set];
+        console.log(arr);
+
+        let obj1 = set.keys();
+        console.log(obj1.next());
+        console.log(obj1.next());
+        console.log(obj1.next());
+        console.log(obj1.next());
+
+
+        let obj2 = set.values();
+        console.log(obj2.next());
+        console.log(obj2.next());
+        console.log(obj2.next());
+        console.log(obj2.next());
+
+
+        console.log(set.has(1));
+
+        console.log( set.delete(1) );
+
+        set.clear();
+
+        console.log(set);
+
+    </script>
+</html>
+
+
+(04-09-2019)
+
+
+
+<!--
+    Promise is a special JavaScript Object.
+
+    Promises establishes the communication Between Producer and Consumer.
+
+    we will create promises by using "Promise" class constructor.
+
+    Promises have following states.
+            @resolve  (success)
+            @reject   (Error)
+
+    - we will consume promises by using "then()" function
+-->
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let promise1 = new Promise((resolve,reject)=>{
+            resolve("tomarrow we will discuss debugging");
+        });
+        promise1.then((posRes)=>{
+            console.log(posRes);
+        },(errRes)=>{
+            console.log(errRes);
+        });
+    </script>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let promise1 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("error handling");
+            },5000);
+        });
+        promise1.then((posRes)=>{
+            console.log(posRes);
+        },(errRes)=>{
+            console.log(errRes);
+        });
+    </script>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let promise1 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Success");
+            },5000);
+            setTimeout(()=>{
+                reject("Failure");
+            },3000);
+        });
+        promise1.then((posRes)=>{
+            console.log(posRes);
+        },(errRes)=>{
+            console.log(errRes);    //Failure
+        });
+    </script>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let promise1 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Hello_1");
+            },0);
+        });
+
+        let promise2 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Hello_2");
+            },5000);
+        });
+
+        let promise3 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Hello_3");
+            },10000);
+        });
+
+        // promise1.then((posRes)=>{
+        //     console.log(posRes);
+        // },(errRes)=>{
+        //     console.log(errRes);
+        // });
+
+        // promise2.then((posRes)=>{
+        //     console.log(posRes);
+        // },(errRes)=>{
+        //     console.log(errRes);
+        // });
+
+        // promise3.then((posRes)=>{
+        //     console.log(posRes);
+        // },(errRes)=>{
+        //     console.log(errRes);
+        // });
+
+        Promise.all([promise1,promise2,promise3]).then((posRes)=>{
+                console.log(posRes[0]);
+                console.log(posRes[1]);
+                console.log(posRes[2]);
+        },(errRes)=>{
+            console.log(errRes);
+        });
+
+    </script>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let promise1 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Success");
+            },5000);
+        });
+        let promise2 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                reject("Error");
+            },3000);
+        });
+        Promise.all([promise1,promise2]).then((posRes)=>{
+                console.log(posRes);
+        },(errRes)=>{
+                console.log(errRes);
+        });
+    </script>
+</html>
+
+
+(5-09-2019)
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+       let promise1 = new Promise((resolve,reject)=>{
+            setTimeout( ()=>{
+                resolve("hello");
+            }, 5000 );
+       });
+       async function myFun(){
+            let res = await promise1;
+            console.log(res);
+       };
+       myFun();
+    </script>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let promise1 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Promise1");
+            },0);
+        });
+        let promise2 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Promise2");
+            },5000);
+        });
+        let promise3 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Promise3");
+            },10000);
+        });
+        async function myFun(){
+            let res1 = await promise1;
+            let res2 = await promise2;
+            let res3 = await promise3;
+            console.log(res1);
+            console.log(res2);
+            console.log(res3);
+        };
+        myFun();
+        //we are getting result after 10 sec
+
+    </script>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+    <!--Load jQuery-->
+    <!-- JQuery library used to make the AJAX Calls-->
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script>
+            function fun_one(){
+                return new Promise((resolve,reject)=>{
+                    //make the AJAX Call
+                    $.ajax({
+                        method:"GET",
+                        url:"https://restcountries.eu/rest/v2/all",
+                        success:(posRes)=>{
+                            resolve(posRes);
+                        },
+                        error:(errRes)=>{
+                            reject(errRes);
+                        }
+                    })
+                });
+            };
+
+            async function fun_two(){
+                let res = await fun_one();
+                console.log(res);
+            };
+            
+            fun_two();
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

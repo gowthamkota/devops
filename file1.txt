@@ -1,0 +1,766 @@
+	 ****** Node Introduction ******
+
+	- NodeJS is the server side scripting
+	  language.
+
+	- By using NodeJS, we can develop
+	  servers.
+		Http Server
+		TCP Server
+
+	- we will develop Node Applications
+	  by using JavaScript.
+
+
+	- we will develop Rest API'S by using
+	  "ExpressJS" Module in "NodeJS".
+
+
+	- we will start Node Server by using
+	  following commands
+
+
+		> node server
+
+		    (or)
+
+		> nodemon server
+
+	- "nodemon" is the nodejs tool, used
+	  to start the node server in watch
+	  mode.
+
+	- we will install "nodemon" by using
+	  following command.
+
+	> npm install -g nodemon@latest
+
+	- npm stands for node packaging manager
+
+	- "-g" stands for global installation
+
+	- Node Supports the Modules
+
+Modules
+-------
+1) mysql
+	- mysql module used to interact with
+	  the mysql database.
+
+
+2) mongodb
+	- this module used to interact with 
+	  the mongodb database.
+
+	- the stable version of mongodb module
+	  is 2.2.32
+
+	- mongodb module used to interact with
+	  the mongodb database without schema.
+
+	- schema means "rules and regulations"
+
+3) mongoose
+	- mongoose module used to interact
+	  with the mongodb database 
+	  with schema.
+
+
+4) mssql
+	
+	- this module used to interact with
+	  the SQLServer.
+
+
+5) express
+	- this module used to develop the
+	  Rest API'S
+
+
+6) multer
+	- this module used to upload the images
+	  to the server.
+
+
+7) jwt-simple
+	- this module used to generate the
+	  tokens.
+
+	- in general we will use tokens for
+	  authentication.
+
+	- this authentication system called 
+	  as token based authentication
+	  system.
+
+8) cors
+	- this module used to enable the 
+	  communication between ports.
+
+
+9) body-parser
+
+	- this module used to read the data
+	  coming from client
+
+[Note : we will download above modules by using
+	either "npm" or "yarn"]
+
+	- "yarn" is the tool, provided by
+	  facebook.
+
+	- "yarn" tool used to download the
+	  modules
+
+	- we will install "yarn" tool by using
+	  following command
+
+	> npm install -g yarn@latest
+
+	- we will download modules by using
+	  following syntax.
+
+	> yarn add express,... --save
+
+	- automatically all the modules will
+	  be downloads to "node_modules" folder
+	  in current path.
+
+
+[Note : we will test rest apis by using 
+        "Postman"]
+
+
+MongoDB CRUD Operations
+-----------------------
+
+	- "MongoDB" is the Document Oriented
+	  DataBase.
+
+	- "MongoDB" is the NoSQL DataBase.
+
+	- "MongoDB" supports the JSON.
+
+	- As a MongoDB Developer, we can 
+	  perform CRUD Operations on JSON.
+
+	- MongoDB follows the "client server"
+	  architecture.
+
+	- "MongoDB" follows the "mongodb"
+	  protocol.
+
+	- By Default "MongoDB" running on
+	  port no 27017
+
+MongoDB Installation
+--------------------
+1) download and install MongoDB by visting
+   following website
+
+website : https://www.mongodb.com/
+	  download-center/community
+
+file    : mongodb-win32-x86_64-
+	  2012plus-4.2.0-signed.msi
+
+2) create the following directory structure
+
+c:/data/db
+
+	- above directory structure used to
+	  maintain the data backup.
+
+
+3) set the path environmental variable
+
+	path = C:\Program Files\MongoDB\
+	       Server\4.0\bin
+
+
+MongoDB Queries
+---------------
+
+1) mongod
+	- this command used to start 
+	  the server
+
+	- by default server starts on port no
+	  27017
+
+	- by default server follows the "mongod"
+	  protocol
+
+2) mongo
+	- this command used to connect to server.
+
+
+3) show dbs;
+	- it will show available databases.
+
+
+4) use mydb;
+	- automatically "mydb" database 
+	  will be created and switches also.
+
+5) db.createCollection("products");
+
+	- collection means table.
+
+	- automatically "products" collection
+	  will be created.
+
+6) db.products.insert({
+	"p_id":111,
+	"p_name":"p_one",
+	"p_cost":10000
+   });
+
+	- automatically json object will be
+	  inserted in "products" collection.
+
+
+7) db.products.find().pretty();
+
+	- used to read the data from 
+	  "products" collection.
+
+8) db.dropDatabase();
+	
+	- it is used to drop the current
+	  database.
+
+
+
+
+2) create the following directory(folder).
+
+	MongoDB_CRUD
+
+
+3) download the following node modules
+
+	=> express
+
+	=> mongodb@2.2.32
+
+	=> body-parser
+
+	=> cors
+
+		- "express" module used to
+		   develop the rest apis
+
+		- "mongodb@2.2.32" module
+		  used to interact with the
+		  mongodb database.
+
+		- "body-parser" module used to
+		   read the client data.
+
+		- "cors" module used to enable
+		  the ports communication.
+
+> yarn add express 
+	   mongodb@2.2.32 
+	   body-parser cors --save
+
+
+4) develop the rest apis by using node js
+
+**********************
+MongoDB_CRUD
+	  fetch
+	     fetch.js
+	  insert
+	     insert.js
+	  update
+	     update.js
+	  delete
+	     delete.js
+	  server.js
+**********************
+
+	- "fetch.js" file used to fetch the data
+	   from products collection
+
+	- "insert.js" file used to insert the
+	   data in products collection
+
+	- "update.js" file used to update the
+	   data in products collection
+
+	- "delete.js" file used to delete the
+	   data from products collection.
+
+	- "server.js" file is the main server
+	   file.
+
+
+Step 5.
+	Start the node server
+
+> nodemon server
+  
+Step 6.
+	Test the following rest apis by using Postman
+
+=> http://localhost:8080/fetch  (GET)
+
+=> http://localhost:8080/insert (POST)
+
+=> http://localhost:8080/update (PUT)
+
+=> http://localhost:8080/delete (DELETE)
+
+
+
+
+fetch.js
+
+
+
+let express = require("express");
+let mongodb = require("mongodb");
+let nareshIT = mongodb.MongoClient;
+module.exports = express.Router().get("/",(req,res)=>{
+    nareshIT.connect("mongodb://localhost:27017/mydb",(err,db)=>{
+        db.collection("products").find().toArray((err,array)=>{
+            res.send(array);
+        });
+    });
+});
+
+
+
+insert.js
+
+
+let express = require("express");
+let mongodb = require("mongodb");
+let nareshIT = mongodb.MongoClient;
+module.exports = express.Router().post("/",(req,res)=>{
+    nareshIT.connect("mongodb://localhost:27017/mydb",(err,db)=>{
+        db.collection("products").insertOne({
+            "p_id":req.body.p_id,
+            "p_name":req.body.p_name,
+            "p_cost":req.body.p_cost
+        },(err,result)=>{
+            if(err)
+                res.send({"insert":"fail"});
+            else
+                res.send({"insert":"success"});
+        });
+    });
+});
+
+
+update.js
+
+let express = require("express");
+let mongodb = require("mongodb");
+let nareshIT = mongodb.MongoClient;
+module.exports = express.Router().put("/",(req,res)=>{
+    let obj1 = {"p_id":req.body.p_id};
+    
+    let obj2 = {$set:{"p_name":req.body.p_name,
+                      "p_cost":req.body.p_cost}};
+
+    nareshIT.connect("mongodb://localhost:27017/mydb",(err,db)=>{
+        db.collection("products").updateOne(obj1,obj2,
+                                    (err,result)=>{
+                if(err)
+                    res.send({"update":"fail"});
+                else
+                    res.send({"update":"success"});
+        });
+    });
+});
+
+
+
+
+delete.js
+
+let express = require("express");
+let mongodb = require("mongodb");
+let nareshIT = mongodb.MongoClient;
+module.exports = express.Router().delete("/",
+                                        (req,res)=>{
+    let obj1 = {"p_id":req.body.p_id};
+    nareshIT.connect("mongodb://localhost:27017/mydb",
+                        (err,db)=>{
+        db.collection("products").deleteOne(obj1,
+                        (err,result)=>{
+            if(err)
+                res.send({"delete":"fail"});
+            else
+                res.send({"delete":"success"});
+        });
+    });
+});
+
+
+server.js
+
+
+
+//this file is the main node server file
+//node engine starts the execution from this file
+//this file used to collabrate(club) the modules
+
+//import express module
+let express = require("express");
+//import cors module
+let cors = require("cors");
+//import body-parser module
+//it is used to read the data coming from client
+let bodyparser = require("body-parser");
+
+//create the rest object
+//rest object used to collabrate and use the modules
+let app = express();
+//where "app" is the rest object.
+
+//set the JSON as MIME Type
+app.use(bodyparser.json());
+//read the json from client
+app.use(bodyparser.urlencoded({extended:false}));
+
+//enable the ports communication
+app.use(cors());
+
+//import fetch module
+let module1 = require("./fetch/fetch");
+app.use("/fetch",module1);
+
+//import insert module
+let module2 = require("./insert/insert");
+app.use("/insert",module2);
+
+//import update module
+let module3 = require("./update/update");
+app.use("/update",module3);
+
+//import delete module
+let module4 = require("./delete/delete");
+app.use("/delete",module4);
+
+//assign the port no
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+
+
+				Registration with mongoose module
+				---------------------------------
+
+	- we will interact with mongodb database in two ways.
+
+		1) mongodb@2.2.32
+
+		2) mongoose
+
+	- "mongodb@2.2.32" module used to interact with the mongodb database without schema.
+
+	- "mongoose" module used to interact with the mongodb database with schema.
+
+	- "schema" means rules and regulations.
+
+
+
+
+Step 1.
+	start the mongodb server
+
+> mongod
+
+
+Step 2.
+	connect to mongo server
+
+> mongo
+
+
+Step 3.
+	create the directory(folder).
+
+Ex.
+	Registration
+
+
+Step 4.
+	download the following node modules
+
+
+	=> express
+
+	=> mongoose
+
+	=> body-parser
+
+	=> cors
+
+	- "express" module used to develop the rest apis.
+
+	- "mongoose" module used to interact with the mongodb database with schema.
+
+	- "body-parser" module used to read the post parameters.
+
+	- "cors" module used to enable the ports communication.
+
+	> yarn add express mongoose body-parser cors --save
+
+	- automatically above modules will be downloads to "node_modules" folder in current path
+
+
+
+Step 5.
+	Develop the Rest API by using NodeJS
+
+Ex.
+	server.js
+
+//this file used to develop the rest api
+//import the node modules
+//require() is the predefined function in ES6 used to import the node modules
+
+//import express module
+let express = require("express");
+//import body-parser module
+let bodyparser = require("body-parser");
+//import mongoose module
+let mongoose = require("mongoose");
+//import cors module
+let cors = require("cors");
+
+
+//create the rest object
+let app = express();
+//where "app" is the rest object
+//where "app" object used to develop the rest apis
+
+
+//set the JSON as MIME Type
+//communication between client and server "language" called as MIME Type
+//in our application client and server communicates with JSON.
+app.use(bodyparser.json());
+
+
+//parse the json
+//read the json coming from client
+app.use(bodyparser.urlencoded({extended:false}));
+
+
+//define the schema(rules and regulations)
+let obj = mongoose.Schema({
+    'fname':String,
+    'lname':String,
+    'email':String,
+    'contact':String,
+    'age':Number,
+    'dob':Date,
+    'gender':String,
+    'languages':Array,
+    'country':String
+});
+//where "obj" representing Schema
+
+//assign the schema to mongodb database
+let record = mongoose.model("obj",obj);
+//where "record" object used to save the record to database.
+
+
+//enable the cors
+app.use(cors());
+//automatically communication happened between different ports.
+
+
+
+//create the rest api
+app.post("/register",(req,res)=>{
+    //create the obj based on client data
+    let obj = {
+        'fname':req.body.fname,
+        'lname':req.body.lname,
+        'email':req.body.email,
+        'contact':req.body.contact,
+        'age':req.body.age,
+        'dob':req.body.dob,
+        'gender':req.body.gender,
+        'languages':req.body.languages,
+        'country':req.body.country
+    };
+
+    //connect to database
+    mongoose.connect("mongodb://localhost/registrationdb",(err)=>{
+        if(err)
+            throw err;
+        else{
+            //create new record
+            let newRecord = new record(obj);
+            //save the record
+            newRecord.save((err,result)=>{
+                if(err)
+                    res.send({"registration":"fail"});
+                else
+                    res.send({"registration":"success"});
+            });
+        }
+    });
+});
+//assign the port no
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+Step 6.
+	Start the node server
+
+> nodemon server
+
+
+Step 7.
+	Test the following rest api by using Postman.
+
+	=> http://localhost:8080/register    (POST)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+	      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
