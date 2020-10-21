@@ -1,0 +1,2001 @@
+                                               ************REACTJS ENVIRONMENTAL SETUP******************
+
+1) Download and install node js
+
+         -Nodejs is thw server side scripting language.
+          
+         -By using nodejs we can develop servers.
+
+                Http server
+                Tcp server
+
+          -React installation depending on Node server
+
+website : https://nodejs.org/en/download/
+
+file    : node-v10.16.3-x64.msi
+
+
+2) download and install Git
+
+	- "Git" is the open source repository maintained by microsoft.
+
+	- "Git" repository containes so many open source libraries 
+	  related to reactjs
+
+
+website : https://git-scm.com/download/win
+
+file    : Git-2.23.0-64-bit.exe
+
+
+3) install yarn tool
+
+	- "yarn" is the native tool given by facebook.
+
+	- "yarn" tool used to download the libraries in faster manner.
+	
+	- we will install "yarn" tool by using following command.
+
+	> npm install -g yarn@latest
+
+
+	- "npm" stands for node packaging manager.
+
+	- "npm" is the integrated tool of node js.
+
+	- "-g" stands for global installation.
+
+
+4) install "create-react-app" tool
+
+	- "create-react-app" is the tool given by ReactJS.
+
+	- "create-react-app" tool used to create the React Applications.
+
+	- we will install "create-react-app" tool by using following command.
+
+	> npm install -g create-react-app@latest
+
+
+5) create the React Application
+
+	> create-react-app first-app
+
+	- where "first-app" is the react application.
+
+
+6) switch to React Application
+
+	> cd first-app
+
+
+7) execute the React Application
+
+	> npm start
+
+	    (or)
+
+	> yarn start
+
+	- automatically React Application will execute.
+
+	- by default React Application Running on port no.3000
+
+
+(09-09-2019)
+
+
+
+node_modules:
+-------------
+
+    - "node_modules" representing libraries.
+
+    - these libraries helps to execute the react application
+
+public/favicon.ico 
+    logo192.png
+    logo512.png
+-------------------
+    - these logos representing default logos of react library
+
+
+public/index.html
+------------------
+
+    - this file is the main template.
+
+    - react library starts the execution from "index.html" file.
+
+    - by default it contain "div" with id as "root"
+
+    Ex.
+         <div id="root"></div>
+
+    - in future we will append the services(Rest API'S) Data
+      to div.
+
+src/manifest.json
+-----------------
+
+    - this file is the configuration file for React Native Applications Development.
+
+    - React Native Applications are the mobile Applications.
+
+src/App.js
+----------
+
+    - "App.js" file is the default Component in React Application
+
+    - Part of Complex UI Called as Component.
+
+    - Components are Reusable.
+
+    - Components makes the React Application Development Eazy.
+
+src/App.css
+-----------
+
+    - This file representing Default Style Sheet for Default Component.
+
+src/App.test.js
+---------------
+
+    - This file representing the Default Unit Testing file for Default Component.
+
+    - in general we will write unit test cases by using "karma with jasmine"
+
+    - "karma with jasmine" is the automation tool used to write the unit test cases to UI Applications
+        Ex.
+            Angular
+            React
+            JavaScript
+            ---
+            ---
+            --- 
+
+src/index.js
+------------
+
+    - "index.js" file is the registration file.
+
+    - we must register all our components in registration file.
+
+    - once if we register, then only it will execute by react library.
+
+src/index.css
+-------------
+
+    - this file is the style sheet for registration file.
+
+
+src/logo.svg
+------------
+
+    - this is the default SVG logo of   react library
+
+
+src/serviceWorker.js
+--------------------
+
+    - this file also configuration file for React Native Applications Development.
+
+
+package.json
+------------
+
+    - this file used to download the libraries to develop react Applications.
+
+
+Note1 : 
+    we should deploy all our applications in src folder
+
+Note2: 
+    we should register all our applicatios in "index.js" file
+
+React Application Execution flow
+--------------------------------
+
+=> React Starts the Execution from "index.html" file
+
+=> "index.html" file internally invokes th "index.js" file.
+
+=> "index.js" file internally invokes the Components.
+
+
+*************************************************
+First Component
+
+
+first-app
+       src
+        First.js
+
+
+
+//import React and Component Classes
+
+import React, { Component } from "react";
+
+export default class First extends React.Component{
+
+    render(){
+        return(
+            <div>
+                <h1 style={{color:"red"}}>Welcome to First Component</h1>
+            </div>
+        )
+    }
+
+};
+
+        index.js
+
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import First from "./First";
+import * as serviceWorker from './serviceWorker';
+ReactDOM.render(<First />, document.getElementById('root'));
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+
+*************************************************
+
+
+********************************************
+
+(11-09-2019)
+
+
+multiple components in react js:
+-------------------------------
+
+Name of Project
+
+          =>multiple_app
+
+                src
+                               
+                -Header.js
+                 LeftMenu.js
+                 RightMenu.js
+                 Body.js
+                 Footer.js
+                 App.js
+
+
+Header.js:
+-----------
+
+import React,{ Component } from "react";
+export default class Header extends React.Component{
+    render(){
+        return(<h1>Header Soon...!</h1>)
+    }
+};
+
+ 
+
+LeftMenu.js:
+------------
+
+import React,{ Component } from "react";
+export default class LeftMenu extends React.Component{
+    render(){
+        return(<h1>Left Menu Soon with BootStrap</h1>);
+    }
+}
+
+
+RightMenu.js:
+-------------
+
+import React,{ Component } from "react";
+export default class RightMenu extends React.Component{
+    render(){
+        return(
+            <h1>RightMenu Soon With Bootstrap</h1>
+        )
+    }
+};
+
+
+Body.js:
+--------
+import React,{ Component } from "react";
+export default class Body extends React.Component{
+    render(){
+        return(<h1>Body Soon...!</h1>);
+    }
+};
+
+Footer.js:
+----------
+
+import React,{ Component } from "react";
+export default class Footer extends React.Component{
+    render(){
+        return(
+            <h1>Footer Soon...!</h1>
+        );
+    };
+};
+
+app.js:
+--------
+
+import React,{ Component } from "react";
+import Header from "./Header";
+import LeftMenu from "./LeftMenu";
+import RightMenu from "./RigthMenu";
+import Body from "./Body";
+import Footer from "./Footer";
+export default class App extends React.Component{
+  render(){
+    return(
+      <div>
+        <Header></Header>
+        <LeftMenu></LeftMenu>
+        <RightMenu></RightMenu>
+        <Body></Body>
+        <Footer></Footer>
+      </div>
+    )
+  }
+};
+
+
+State.js:
+----------
+
+//State is the Predefined Object in ReactJS
+//State used to store the Component Related Data
+//in general we will Store Rest API'S Response in State
+
+import React, { Component } from "react";
+export default class State extends React.Component{
+    //declare the constructor
+    //in general we will define state in constructors only
+    constructor(){
+        //call the super class constructor
+        super();
+        this.state = {
+            products : [
+                {"p_id":111,"p_name":"p_one","p_cost":10000,"p_qty":10},
+                {"p_id":222,"p_name":"p_two","p_cost":20000,"p_qty":20},
+                {"p_id":333,"p_name":"p_three","p_cost":30000,"p_qty":30},
+                {"p_id":444,"p_name":"p_four","p_cost":40000,"p_qty":40},
+                {"p_id":555,"p_name":"p_five","p_cost":50000,"p_qty":50}
+            ]
+        };
+    };
+    render(){
+        return(
+            <div align="center">
+                <table border="1"
+                       cellPadding="10px"
+                       cellSpacing="10px"
+                       style={{fontSize:"20"}}>
+                    <thead style={{backgroundColor:"grey"}}>
+                        <tr>
+                            <th>SNO</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Cost</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.products.map((el,i)=>(
+                            <tr>
+                                <td>{i+1}</td>
+                                <td>{el.p_id}</td>
+                                <td>{el.p_name}</td>
+                                <td>{el.p_cost}</td>
+                                <td>{el.p_qty}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        )
+    };
+};
+
+
+
+
+
+(14-09-2019)
+
+
+
+App.js:
+-------
+
+
+import React,{ Component } from "react";
+export default class App extends React.Component{
+    constructor(){
+        super();
+        this.state = {
+            //string
+            sub : "ReactJS",
+            //number
+            cost : 10000,
+            //boolean
+            flag:true,
+            //obj
+            obj:{
+                p_id:111,
+                p_name:"p_one",
+                p_cost:10000
+            },
+            //arr
+            arr:[10000,20000,30000,40000,50000]
+        };
+    }
+    render(){
+        return(
+          <div>
+              <h1>{this.state.sub}</h1>
+              <h1>{this.state.cost}</h1>
+              <h1>{JSON.stringify(this.state.flag)}</h1>
+              <h1>{JSON.stringify(this.state.obj)}</h1>
+              {this.state.arr.map((el,i)=>(
+                 <h1>{el}...{i}</h1>
+              ))}
+          </div>
+        )
+    }
+};
+
+stateChange:
+------------
+
+import React,{ Component } from "react";
+export default class StateChange extends React.Component{
+    constructor(){
+        super();
+        this.state = {
+            age : 20
+        }
+    };
+    increment = ()=>{
+        this.setState({
+            age:this.state.age+1
+        })
+    };
+    decrement = ()=>{
+        this.setState({
+            age:this.state.age-1
+        })
+    };
+    render(){
+        return(
+            <div align="center">
+                <h1 style={{color:"red"}}>{this.state.age}</h1>
+                <button onClick={this.increment} style={{marginRight:10}}>Increment</button>
+                <button onClick={this.decrement} style={{marginRight:10}}>Decrement</button>
+            </div>
+        )
+    };
+};
+
+
+Comp1.js:
+--------
+
+import React,{ Component } from "react";
+import Comp2 from "./Comp2";
+export default class Comp1 extends React.Component{
+    constructor(){
+        super();
+        this.state = {
+            "message":"welcome"
+        }
+    };
+    render(){
+        return(
+            <div>
+                <Comp2 data={this.state.message}></Comp2>
+            </div>
+        )
+    }
+};
+
+
+Comp2.js:
+----------
+
+import React,{ Component } from "react";
+export default class Comp2 extends React.Component{
+        constructor(props){
+            super(props);
+        }
+        render(){
+            return(
+                <h1>{this.props.data}</h1>
+            )
+        }
+};
+
+
+
+
+  (16-09-2019)
+
+App.js:
+----------
+
+import React,{ Component } from "react";
+export default class App extends React.Component{
+    clickMe = ()=>{
+        if(this.refs.uname.value === "admin" &&
+            this.refs.upwd.value === "admin" ){
+              alert("Login Success !");
+        }else{
+              alert("Login Fail !");
+        }
+    };
+    render(){
+        return(
+          <div>
+              <input type="text"
+                     name="uname"
+                     ref="uname"
+                     placeholder="User Name"></input>
+              <br></br>
+              <br></br>
+              <input type="password"
+                     name="upwd"
+                     ref="upwd"
+                     placeholder="Password"></input>
+              <br></br>
+              <br></br>
+              <button onClick={this.clickMe}>Login</button>
+          </div>
+        )
+    };
+};
+
+
+comp1:
+------
+
+// import React,{ Component } from "react";
+// import Comp2 from "./Comp2";
+// export default class Comp1 extends React.Component{
+//     constructor(){
+//         super();
+//         this.state = {
+//             "wish":"welcome"
+//         };
+//     }
+//     render(){
+//         return(
+//             <div>
+//                 <Comp2 arg1={this.state.wish}></Comp2>
+//             </div>
+//         )
+//     };
+// };
+
+
+
+Comp2:
+-------
+
+import React,{ Component } from "react";
+import Comp3 from "./Comp3";
+export default class Comp2 extends React.Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        return(
+            <div>
+                <Comp3 {...this.props}></Comp3>
+            </div>
+        )
+    }
+};
+
+
+import React,{ Component } from "react";
+export default class Comp3 extends React.Component{
+    constructor(props){
+        super(props);
+    };
+    render(){
+        return(
+            <div>
+                {this.props.arg1}
+            </div>
+        )
+    };
+};
+
+
+
+
+
+import React,{ Component } from "react";
+export default class Comp1 extends React.Component{
+    myFun = (event)=>{
+        event.preventDefault();
+        if(this.refs.uname.value === "admin" && 
+            this.refs.upwd.value === "admin"){
+            alert("Login Success");
+        }else{
+            alert("Login Fail");
+        }
+    };
+    render(){
+        return(
+            <div>
+                <form onSubmit={this.myFun}>
+                    <input type="text"
+                           name="uname"
+                           ref="uname"></input>
+                    <input type="password"
+                           name="upwd"
+                           ref="upwd"></input>
+                    <input type="submit"></input>
+                </form>
+            </div>
+        )
+    };
+};
+
+
+
+
+
+(17-09-2019)
+
+
+- Redux is the 3rdparty,libraryused to maintain the state.
+
+-we will download redux by using "yarn" tool 
+
+ >  yarn add redux --save
+
+
+(server.js)
+
+
+//import "createStore" class from "redux"
+//"createStore" class used to create the store in redux application
+let { createStore } = require("redux");
+//create the initial state
+let initialState = {
+    bal : 30000
+};
+//create the reducer
+let myReducer = (state=initialState,action)=>{
+    let newState = {...state};
+    switch(action.type){
+        case "DEPOSIT":
+                newState.bal += action.amount;
+                break;
+        case "WITHDRAW":
+                newState.bal -=action.amount;
+                break;
+    }
+    return newState;
+};
+//create the store
+let store = createStore(myReducer);
+//subscribe
+store.subscribe(()=>{
+    console.log(store.getState());
+});
+//dispath
+store.dispatch({type:"DEPOSIT",amount:20000});
+store.dispatch({type:"WITHDRAW",amount:5000});
+store.dispatch({type:"DEPOSIT",amount:10000});
+store.dispatch({type:"WITHDRAW",amount:30000});
+
+(server.js)
+
+let { createStore } = require("redux");
+let initialState = {
+    age : 20
+};
+let myReducer = (state=initialState,action)=>{
+    let newState = {...state};
+    switch(action.type){
+        case "AGE_UP":
+                newState.age += action.value;
+                break;
+        case "AGE_DOWN":
+                newState.age -= action.value;
+                break;
+    }
+    return newState;
+};
+let store = createStore(myReducer);
+store.subscribe(()=>{
+    console.log(store.getState());
+});
+store.dispatch({type:"AGE_UP",value:1});
+store.dispatch({type:"AGE_UP",value:1});
+store.dispatch({type:"AGE_UP",value:1});
+store.dispatch({type:"AGE_UP",value:1});
+store.dispatch({type:"AGE_UP",value:1});
+store.dispatch({type:"AGE_DOWN",value:2});
+store.dispatch({type:"AGE_DOWN",value:2});
+store.dispatch({type:"AGE_DOWN",value:1});
+
+
+
+
+(18-09-2019)
+
+
+	        **** Integration of Redux to React ****
+	
+
+1) download the following libraries
+
+	=> redux
+
+	=> react-redux
+
+	> yarn add redux react-redux --save
+
+
+
+2) create the reducer
+
+**********************************
+src
+   store
+      reducer
+	 reducer.js
+**********************************
+
+
+3) deploy the "Reducer in Store" and make available "globally"	
+
+
+4) create the react application
+
+
+
+Reducer.js:
+-----------
+
+
+let initialState = {
+    age : 21
+};
+const reducer = (state=initialState,action)=>{
+    let newState = {...state};
+    switch(action.type){
+        case "AGE_UP":
+                newState.age += action.value;
+                break;
+        case "AGE_DOWN":
+                newState.age -= action.value;
+                break;
+    }
+    return newState;
+};
+export default reducer;
+
+
+App.js:
+--------
+
+//import React,Component
+import React,{ Component } from "react";
+//import connect 
+//connect class used to subscribe and dispatch
+import { connect } from "react-redux";
+//import App.css
+import "./App.css"
+//create the Component
+class App extends React.Component{
+    render(){
+        return(
+          <div className="App">
+              <h1>
+                 Age:
+                 <span style={{color:"red"}}>
+                    {this.props.age}   
+                 </span>
+              </h1>
+              <br></br><br></br>
+              <button onClick={this.props.onAgeUp}>
+                  AgeUp
+              </button>
+              <button onClick={this.props.onAgeDown}>
+                  AgeDown
+              </button>
+          </div>
+        )
+    }
+};
+const receive = (state)=>{
+    return{
+      age:state.age 
+    }
+};
+const send = (dispatch)=>{
+    return{
+      onAgeUp : ()=> dispatch({type:"AGE_UP",value:1}),
+      onAgeDown : ()=> dispatch({type:"AGE_DOWN",value:1})
+    }
+};
+export default connect(receive,send)(App);
+
+
+App.test.js:
+------------
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
+
+
+
+index.js:
+----------
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+//import Provider
+//Provider makes the store available to React
+import { Provider } from "react-redux";
+//import createStore
+import { createStore } from "redux";
+//import reducer
+import reducer from "./store/reducer/reducer";
+//create the store
+const store = createStore(reducer);
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+serviceWorker.unregister();
+
+
+
+
+
+
+(19-09-2019)
+
+Reducer.js:
+-----------
+let initialState = {
+    age : 21,
+    history : []
+};
+const reducer = (state=initialState,action)=>{
+    let newState = {...state};
+    switch(action.type){
+        case "AGE_UP":
+            return{
+                ...state,
+                age:state.age+action.value,
+                history:state.history.concat({"id":Math.random(),"age":state.age+action.value})
+            }
+        case "AGE_DOWN":
+            return{
+                ...state,
+                age:state.age-action.value,
+                history:state.history.concat({"id":Math.random(),age:state.age-action.value})
+            }
+        case "DEL_ITEM":
+            return{
+                ...state,
+                history:state.history.
+                        filter(el=>el.id!==action.value)
+            }
+            break;
+    }
+    return newState;
+};
+export default reducer;
+
+App.js:
+-------
+import React,{ Component } from "react";
+import { connect } from "react-redux";
+import "./App.css";
+class App extends React.Component{
+    render(){
+      return(
+          <div className="App">
+              <h1>Age:
+                <span style={{color:"red"}}>
+                    {this.props.age}
+                </span>
+              </h1>
+              <br></br><br></br>
+              <button onClick={this.props.onAgeUp}>AgeUp</button>
+              <button onClick={this.props.onAgeDown}>AgeDown</button>
+              <hr></hr><hr></hr>
+              <h1>
+                  {this.props.history.map((el)=>(
+                    <p key={el.id} 
+                    onClick={()=>this.props.onDelItem(el.id)}>
+                       {el.age}
+                    </p>
+                  ))}
+              </h1>
+          </div>
+      )
+    }
+};
+const receive = (state)=>{
+  return{
+    age:state.age,
+    history:state.history
+  }
+};
+const send = (dispatch)=>{
+  return{
+    onAgeUp : ()=> dispatch({type:"AGE_UP",value:1}),
+    onAgeDown : ()=>dispatch({type:"AGE_DOWN",value:1}),
+    onDelItem : (id)=>dispatch({type:"DEL_ITEM",value:id})
+  }
+}
+export default connect(receive,send)(App);
+
+
+
+
+
+App.test.js:
+-------------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
+
+
+
+
+
+index.js:
+----------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "./reducer/reducer";
+const store = createStore(reducer);
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+
+
+(20-09-2019)
+
+
+1) download the libraries
+=> redux , react-redux
+
+2) create the reducer
+
+******************************
+src
+  store
+    reducer
+        reducer.js
+*****************************
+
+
+3) deploy "reducer" in "store" and 
+   makes availability to "global"
+
+   Ex.
+        index.js
+
+4) create the react applications
+
+        => UI Design  (props)     (render)
+
+        => subscribe  (state)
+
+        => dispatch   (dispatch)
+
+        => connect (subscribe,dispatch)   
+
+
+store:reducer:reducer.js:
+-------------------------
+
+const initialState = {
+    age : 20
+};
+const reducer = (state=initialState,action)=>{
+    const newState = {...state};
+    switch(action.type){
+        case "AGE_UP":
+           newState.age += parseInt(action.value);
+           break;
+        case "AGE_DOWN":
+            newState.age -= action.value;
+            break; 
+    }
+    return newState;
+};
+export default reducer;
+
+
+App.js:
+--------
+
+
+
+import React,{ Component } from "react";
+import { connect } from "react-redux";
+class App extends React.Component{
+      render(){
+          return(
+              <div>
+                  <input type="number"
+                         placeholder="AGE"
+                         ref="age"></input>
+                  <h1>Age:{this.props.xyz}</h1>
+                  <br></br>
+                  
+                  <button 
+                    onClick={()=>this.props.onAgeUp(this.refs.age.value)}>AgeUp</button>
+                  
+                  <button onClick={()=>this.props.onAgeDown(this.refs.age.value)}>AgeDown</button>
+              </div>
+          )
+      };
+};
+const receive = (state)=>{
+  return{
+       xyz:state.age
+  }
+};
+const send = (dispatch)=>{
+  return{
+    onAgeUp : (value)=> dispatch({type:"AGE_UP",value:value}),
+    onAgeDown : (value)=>dispatch({type:"AGE_DOWN",value:value})
+  }
+};
+export default connect(receive,send)(App);
+   
+
+
+App.test.js:
+--------------
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
+
+
+index.js:
+----------
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "./store/reducer/reducer";
+const store = createStore(reducer);
+
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+
+
+
+
+(24-09-2019)
+
+reducerA:
+-----------
+
+const initialState = {
+    a:1
+};
+const reducer = (state=initialState,action)=>{
+    const newState = {...state};
+    if(action.type === "UPDATE_A"){
+        return{
+            ...state,
+            a:state.a+action.b
+        }
+    }
+    return newState;
+};
+export default reducer;
+
+
+reducerB:
+-----------
+
+const initialState = {
+    b:1
+};
+const reducer = (state=initialState,action)=>{
+    const newState = {...state};
+    if(action.type === "UPDATE_B"){
+        return{
+            ...state,
+            b:state.b+action.a
+        }
+    };
+    return newState;
+};
+export default reducer;
+
+index.js:
+------------
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import { Provider } from "react-redux";
+import { createStore,combineReducers } from "redux";
+import reducerA from "./reducers/reducerA";
+import reducerB from "./reducers/reducerB";
+const rootReducer = combineReducers({
+    rA:reducerA,
+    rB:reducerB
+});
+const store = createStore(rootReducer);
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+serviceWorker.unregister();
+
+
+App.js:
+----------
+import React,{ Component } from "react";
+import { connect } from "react-redux";
+import "./App.css";
+class App extends React.Component{
+    render(){
+      return(
+          <div className="App">
+              <h1>A:
+                <span style={{color:"red"}}>            {this.props.a}
+                </span>
+              </h1>
+              <h1>B:
+                <span style={{color:"red"}}>              {this.props.b}
+                </span>
+              </h1>
+              <br></br><br></br>
+              <button onClick={()=>this.props.updateA(this.props.b)}>UpdateA</button>
+              <button onClick={()=>this.props.updateB(this.props.a)}>UpdateB</button>
+          </div>
+      )
+    }
+};
+const receive = (state)=>{
+    console.log(state);
+    return{
+        a:state.rA.a,
+        b:state.rB.b
+    };
+};
+const send = (dispatch)=>{
+    return{
+      updateA:(b)=> dispatch({type:"UPDATE_A",b:b}),
+      updateB:(a)=> dispatch({type:"UPDATE_B",a:a})
+    }
+};
+export default connect(receive,send)(App);
+
+
+
+(25-09-2019)
+
+
+reducer:
+----------
+
+const initialState = {
+    age : 20
+};
+const reducer = (state=initialState,action)=>{
+    const newState = {...state};
+    if(action.type === "AGE_UP"){
+        newState.age += action.value;
+    }
+    else if(action.type === "AGE_DOWN"){
+        newState.age -= action.value;
+    }
+    return newState;
+}
+export default reducer;
+
+
+actions.js:
+------------
+export const ageUpAsync = (val)=>{
+    return {type:"AGE_UP",value:val}
+};
+export const ageUp = (val)=>{
+    return dispatch=>{
+        setTimeout(()=>{
+            dispatch(ageUpAsync(val+1));
+        },5000);
+    }
+};
+export const ageDown = (val)=>{
+    return {type:"AGE_DOWN",value:val};
+};
+
+
+
+
+
+index.js:
+-----------
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import { Provider } from "react-redux";
+import { createStore,applyMiddleware } from "redux";
+import reducer from "./store/reducer/reducer";
+import thunk from "redux-thunk";
+const store = createStore(reducer,applyMiddleware(thunk));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+serviceWorker.unregister();
+
+
+App.js:
+-------
+import React,{ Component } from "react";
+import { connect } from "react-redux";
+import './App.css';
+import * as actionsCreator from "./store/actions/actions";
+class App extends React.Component{
+    render(){
+      return(
+        <div className="App">
+            
+            <h1>Age:<span style={{color:"red"}}>{this.props.age}</span></h1>
+
+            <br></br><br></br>
+            <button onClick={this.props.onAgeUp}>AgeUp</button>
+            <button onClick={this.props.onAgeDown}>AgeDown</button>
+        </div>
+      )
+    };
+};
+const receive = (state)=>{
+    return{
+        age : state.age
+    }
+};
+const send = (dispatch)=>{
+    return{
+      onAgeUp : ()=>dispatch(actionsCreator.ageUp(1)),
+      onAgeDown : ()=>dispatch(actionsCreator.ageDown(1))
+    }
+};
+export default connect(receive,send)(App);
+
+
+
+(27-09-2019)
+
+reducer.js
+------------
+
+const initialState = {
+    age : 20
+};
+const reducer = (state=initialState,action)=>{
+    const newState = {...state};
+    if(action.type === "AGE_UP_ASYNC"){
+        newState.age += action.value;
+    }
+    else if(action.type === "AGE_DOWN"){
+        newState.age -= action.value;
+    }
+    return newState;
+};
+export default reducer;
+
+actions.js
+----------
+
+//import { delay } from "redux-saga";
+import { takeLatest,put,delay } from "redux-saga/effects";
+function *ageUpAsync(){
+    yield delay(5000);
+    yield put({type:"AGE_UP_ASYNC",value:1})
+}
+export function *myFun(){
+    yield takeLatest("AGE_UP", ageUpAsync)
+};
+
+
+index.js
+----------
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import { Provider } from "react-redux";
+import { createStore,applyMiddleware } from "redux";
+import reducer from "./reducer/reducer";
+import { myFun } from "./sagas/actions";
+/************************************************/
+import createSagaMiddleware from "redux-saga"; 
+const myMiddleware = createSagaMiddleware();
+/*************************************************/
+const store = createStore(reducer,applyMiddleware(myMiddleware));
+
+myMiddleware.run(myFun);
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+serviceWorker.unregister();
+
+
+App.js
+-------
+
+import React,{ Component } from "react";
+import './App.css';
+import { connect } from "react-redux";
+class App extends React.Component{
+    render(){
+        return(
+          <div className="App">
+              <h1>Age:<span style={{color:'red'}}>{this.props.age}</span></h1>
+
+              <br></br><br></br>
+              <button onClick={this.props.onAgeUp}>AgeUp</button>
+              <button onClick={this.props.onAgeDown}>AgeDown</button>
+          </div>
+        )
+    }
+};
+const receive = (state)=>{
+  return{
+      age:state.age
+  }
+};
+const send = (dispatch)=>{
+    return{
+      onAgeUp:()=>dispatch({type:"AGE_UP"}),
+      onAgeDown:()=>dispatch({type:"AGE_DOWN",value:1})
+    }
+};
+export default connect(receive,send)(App);
+
+
+
+(1-10-2019)
+
+
+
+	- "axios" module is the 3rd party module, used to make the
+	   rest api calls
+
+	- we will download "axios" module by using "yarn" tool
+
+		> yarn add axios --save
+
+URL : https://restcountries.eu/rest/v2/all
+
+
+rest-api-call:
+--------------
+
+
+// import React,{ Component } from "react";
+// import axios from "axios";
+// import "./App.css";
+// export default class App extends React.Component{
+//     constructor(){
+//          super();
+//          this.state = {
+//               countries : []
+//          };
+//     };
+//     componentDidMount(){
+//         axios.get("https://restcountries.eu/rest/v2/all")
+//              .then((posRes)=>{
+//                 this.setState({
+//                   countries:posRes.data
+//                 })
+//              },(errRes)=>{
+//                 console.log(errRes);
+//         });
+//     };
+//     render(){
+//         return(
+//             <div className="App">
+//                 <table border="1"
+//                        cellPadding="10px"
+//                        cellSpacing="10px"
+//                        align="center">
+//                     <thead style={{"background-color":"grey"}}>
+//                         <tr>
+//                           <th>SNO</th>
+//                           <th>NAME</th>
+//                           <th>CAPITAL</th>
+//                           <th>CODE</th>
+//                           <th>POPULATION</th>
+//                           <th>FLAG</th>
+//                         </tr>
+//                     </thead>
+//                     <tbody>
+//                         {this.state.countries.map((el,index)=>(
+//                             <tr>
+//                                 <td>{index+1}</td>
+//                                 <td>{el.name}</td>
+//                                 <td>{el.capital}</td>
+//                                 <td>{el.currencies[0].code}</td>
+//                                 <td>{el.population}</td>
+//                                 <td><img width="100px" height="50px" 
+//                                      src={el.flag}></img></td>
+//                             </tr>
+//                         ))}
+//                     </tbody>
+//                 </table>
+//             </div>
+//         )
+//     };
+// };
+
+
+
+
+
+(03-10-2019)
+
+
+server.js:
+-----------
+//import the modules
+//require() used to import the modules
+let express = require("express");
+let mysql = require("mysql");
+let bodyparser = require("body-parser");
+let cors = require("cors");
+let jwt = require("jwt-simple");
+
+//create the rest object
+let app = express();
+//where "app" is the rest object
+//where "app" object used to develop the rest apis
+
+
+//enable the ports communication
+app.use(cors());
+
+//set the MIME Type
+//in our application JSON is MIME Type
+app.use(bodyparser.json());
+
+//read the JSON
+app.use(bodyparser.urlencoded({extended:false}));
+
+//create the connection object
+let connection = mysql.createConnection({
+    host : "localhost",
+    user : "root",
+    password : "root",
+    database : "angular4pm"
+});
+
+//connect to database
+connection.connect();
+
+
+//create the rest api
+app.post("/login",(req,res)=>{
+    //read the uname & upwd
+    let uname = req.body.uname;
+    let upwd = req.body.upwd;
+    //query
+    connection.query(`select * from login_details where uname='${uname}' and upwd='${upwd}'`,(err,rec,fields)=>{
+        if(rec.length > 0){
+            //generate the token
+            //converting readable data to unreadable data with the help of password called as token
+            let token = jwt.encode({"uname":uname,                                   "upwd":upwd},                                 "hr@nareshit.in");
+            res.send({"login":"success","token":token});
+        }else{
+            res.send({"login":"fail"});
+        }
+    });
+});
+//assign the port no
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+
+Post Request with axios module
+------------------------------
+  -  we will interact with mysql database 
+     with node server 
+
+1) start the node server
+
+    > cd login
+    > cd server
+    > nodemon server
+
+2) test the rest api by using Postman
+
+    => http://localhost:8080/login  (POST)
+
+
+3) create the React Component
+
+    > yarn add axios --save
+
+    App.js
+
+
+App.js:
+--------
+
+import React,{ Component } from "react";
+import axios from "axios";
+import "./App.css";
+export default class App extends React.Component{
+     state = {
+        status : ""
+     };
+     login=()=>{
+        const obj = {
+          "uname":this.refs.uname.value,
+          "upwd":this.refs.upwd.value
+        }
+        axios.post("http://localhost:8080/login",obj)
+            .then((posRes)=>{
+                console.log(posRes.data.login);
+                this.setState({
+                  status:posRes.data.login
+                })
+            },(errRes)=>{
+                console.log(errRes);
+            });
+       
+     };
+      render(){
+          return(
+            <div className="App">   
+                <fieldset>
+                    <legend>Login</legend>
+                    <input type="text"
+                           ref="uname"
+                           placeholder="User Name"></input>
+                    <br></br>
+                    <br></br>
+                    <input type="password"
+                           ref="upwd"
+                           placeholder="Password"></input>
+                    <br></br><br></br>
+                    <button onClick={this.login}>Login</button>
+                    <br></br>
+                    <h1 style={{color:"green"}}>
+                        {this.state.status}
+                    </h1>
+                </fieldset>
+            </div>
+          )
+      };
+}
+
+
+
+
+
+
+
+(11-10-2019)
+
+
+
+import React,{ Component,PureComponent } from 'react';
+import "./App.css";
+let Temp = (props)=>{
+  console.log("Temp Render");
+  return(<div><h1>{props.val}</h1></div>)
+};
+export default class App extends React.PureComponent{
+    constructor(){
+        super();
+        this.state = {
+            val : 1
+        };
+    };
+    componentDidMount(){
+      setInterval(()=>{
+          this.setState(()=>{
+              return {val:Math.random()}
+          });
+      },2000);
+    };
+    render(){
+        console.log("App Render");
+        return(
+          <div className="App">
+            <Temp val={this.state.val}/>
+          </div>
+        )
+    }
+};
+
+
+(12-10-2019)
+
+
+Child.js:
+----------
+
+
+
+import React,{ Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+export default class Child extends React.Component{
+
+   
+    constructor(props){
+        super(props);
+        console.log("Child Constructor");
+    }
+
+    
+    componentWillMount(){
+        console.log("Child componentWillMount");
+    };
+
+
+
+      
+      render(){
+          console.log("Child Render");
+          return(
+              <div className="App">
+                  {this.props.name}
+              </div>
+          )
+      };
+
+      componentDidMount(){
+          console.log("Child componentDidMount");
+      };
+
+      componentWillReceiveProps(){
+        console.log("Child componentWillReceiveProps");
+      } 
+      
+      shouldComponentUpdate(nextProps,nextState){
+        console.log("Child shouldComponentUpdate");  
+        return true;
+      };
+
+};
+
+
+
+App.js:
+--------
+
+
+import React,{ Component } from 'react';
+import Child from "./Child";
+import './App.css';
+export default class App extends React.Component{
+
+    // state = {
+    //   name : "NareshIT"
+    // }
+
+    //constructor will execute at booting time
+    //constructor will execute at component creation time
+    //constructor mainly for initilization purpose
+    //in general we will define state in constructor
+    constructor(){
+        super();
+        console.log("App Constructor");
+        this.state = {
+            name : "Naresh"
+        };
+    }
+
+    
+    //componentWillMount will execute after constructor
+    //componentWillMount will execute only once
+    //in general we will set the state here
+    //in general we will set global parameters in this life cycle hook
+    componentWillMount(){
+        console.log("App componentWillMount");
+        if(window.innerWidth<500){
+            this.setState({
+              width : window.innerWidth
+            })
+        }
+    };
+
+
+
+      //it will execute after componentWillMount
+      //when ever change detected in state, automatically render() will execute
+      //we wont set state in render()
+      //this life cycle hook is the mandatory life cycle hook
+      render(){
+          console.log("App Render");
+          return(
+              <div className="App">
+                  {this.state.name}  <br></br>
+                  {this.state.width}  <br></br>
+                  <Child name={this.state.name}/>  <br></br>
+                  <button onClick={this.clickMe}>Change</button>
+              </div>
+          )
+      };
+
+      //it will execute after render()
+      //in general we will make AJAX Calls
+      componentDidMount(){
+          console.log("App componentDidMount");
+      };
+
+
+      componentWillReceiveProps(){
+          console.log("App componentWillReceiveProps");
+      }
+
+      clickMe = ()=>{
+          this.setState({
+            name : "NareshIT"
+          })
+      };
+
+      shouldComponentUpdate(nextProps,nextState){
+        console.log("App shouldComponentUpdate");  
+        return true;
+      };
+
+      componentWillUpdate(){
+          console.log("App componentWillUpdate");
+      }
+
+      componentDidUpdate(){
+          console.log("App componentDidUpdate");
+      }
+
+      componentWillUnmount(){
+          console.log("App componentWillUnmount");
+      }
+
+
+
+
+};
+
+
+
+
+**************HOC*****************
+-----------------------------------
+
+commonStyles.js
+----------------
+
+
+const styles = {
+    default : {
+        backgroundColor: '#737373', 
+        color: '#eae8e8', 
+        padding: '10px'
+    }, disable : {
+        backgroundColor: '#9c9c9c', 
+        color: '#c7c6c6', 
+    }
+}
+
+export default styles;
+
+
+
+stylesWraper.js:
+----------------
+
+import React from 'react';
+import commonStyles from './../styles/commonStyles';
+
+
+const translateProps = (props) => {
+    let _styles = {...commonStyles.default}
+    if(props.disable){
+        _styles = {..._styles, ...commonStyles.disable};  
+    }
+    const newProps = {...props,styles:_styles }
+    return newProps;
+} 
+
+
+export default (WrappedComponent) => {
+    return function wrappedRender(args) {
+        return WrappedComponent(translateProps(args));
+    }
+}
+
+
+ButtonOne.js:
+-------------
+
+
+import React from 'react';
+import stylesWrapper from './../HOC/stylesWrapper';
+
+const ButtonOne = (props) => {
+    return (
+        <button style={props.styles}>I am ButtonOne</button>
+    )
+}
+
+export default stylesWrapper(ButtonOne);
+
+
+App.js:
+-------
+
+import React, { Component } from 'react';
+import './App.css';
+import './components/ButtonOne';
+import ButtonOne from './components/ButtonOne';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <ButtonOne disable/>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

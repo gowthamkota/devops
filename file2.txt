@@ -1,0 +1,2490 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        //display the data on webpage
+        document.write("<h1 style='color:red'>ReactJS</h1>");
+        
+        document.write("<h1 style='color:green'>NodeJS</h1>");
+        
+        document.write("<h1 style='color:blue'>MongoDB</h1>");
+
+        //display the data on browser console
+        console.log("Angular");
+        console.log("NodeJS");
+        console.log("MySQL");
+    </script>
+</html>
+
+
+
+console.log( 10 == "10" );   //true
+console.log( [10] == "10" ); //true
+console.log( 10 == "ten" );  //false
+console.log( 0.1+0.2 == 0.3 ); //false
+console.log( 10 === "10" );    //false
+console.log("Hello_1,Hello_2,Heelo_3".split(","));
+
+(28-08-2019)
+
+          
+//variables are used to store the data
+//by using variables we can store any type of data.
+//we will define variables by using "var", "let" and "const"
+//"let" and "const" introduced in ES5
+//variables should contain [A-Z],[a-z],[0-9] and special characters like "$" and "_"
+//variables should not start with digits
+
+
+//number datatype variable
+//decimal, double(or)float, hexadecimal, octal and binary
+//hexadecimal numbers should start with "0x"
+//octal numbers should start with "0o"
+//binary numbers should start with "0b"
+var decimalNum = 100;
+var doubleNum = 100.12345;
+var hexaDecimalNum = 0xABCD123;
+var octalNum = 0o123;
+var binaryNum = 0b1010;
+console.log(decimalNum,
+            doubleNum,
+            hexaDecimalNum,
+            octalNum,
+            binaryNum);  //100 
+                         //100.12345 
+                         //180146467 
+                         //83 
+                         //10
+
+//string datatype variable
+//we can represent string in 3 ways
+//""  ,   '' and ``(backtick)
+//``(backtick) operator introduced in ES6
+//``(backtick) operator used to define the multiline string
+var sub_one = "Angular";
+var sub_two = 'NodeJS';
+var sub_three = `MongoDB`;
+var meanStack = `${sub_one} <=> ${sub_two} <=> ${sub_three}`;
+console.log(meanStack);  //Angular <=> NodeJS <=> MongoDB
+
+//boolean datatype
+var flag = true;
+console.log(flag);  //true
+
+//array datatype
+//number array
+var ids = [111,222,333,444,555];
+//iterate 
+//"for" loop , "for in", "forEach"
+for(var i=0;i<ids.length;i++){
+    console.log(ids[i]);
+};  //111 222 333 444 555
+
+//for in loop
+//for in introduced in ES6
+for(var val in ids){
+    console.log(val);    //0 1 2 3 4
+    console.log(ids[val]);   //111 222 333 444 555
+};
+//forEach()
+//forEach() also introduced in ES6
+//forEach() is the efficient loop to iterate array elements
+ids.forEach(function(element,index){
+    console.log(element,index);  
+});
+//111 0
+//222 1
+//333 2
+//444 3
+//555 4
+
+
+//string array
+var subs = ["AngularJS",
+            "Angular8",
+            "NodeJS",
+            "ReactJS",
+            "VueJS"];
+for(var i=0;i<subs.length;i++){
+    console.log(subs[i]);
+};
+for(var val in subs){
+    console.log(val);
+    console.log(subs[val]);
+};
+subs.forEach(function(element,index){ 
+    console.log(element);
+});
+
+
+
+(29-08-2019)
+
+ var data = 100;
+ var data = 200;
+ console.log(data);   //200
+//var keyword allows the duplicate variables
+
+// let data = 100;
+// let data = 200;
+// console.log(data);   //SyntaxError: Identifier 'data' has already been declared
+let keyword won't allows the duplicate variables
+
+
+//global variable
+var data = 100;
+//block
+ {
+     //local variable
+     var data = 200;
+ }
+ console.log(data);    //200
+//if block code effecting the global members, called as global polluting issue.
+//global polluting issue raised because of "var" keyword
+
+//global variable
+let data = 100;
+//block
+{
+    //local variable
+    let data = 200;
+}
+console.log(data);  //100
+//we can overcome global polluting issue by using "let" keyword
+
+
+
+console.log(data);  //undefined=> javascript => variable hoisting => variable hoisting raised because of var keyword.
+var data = 100;
+
+
+ console.log(data);
+ let data = 100;  //ReferenceError: data is not defined
+ //we can overcome variable hoisting by using "let" keyword
+
+ for(var i=0;i<10;i++){
+ };
+ console.log(i);     //10
+ //var keyword breaks the scope rule
+
+ for(let i=0;i<10;i++){
+ };
+ console.log(i);   //ReferenceError: i is not defined
+
+(30-08-2019)
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [1,2,3];
+        console.log(arr);     //1 2 3 4
+        arr.push(4);
+        console.log(arr);     //1 2 3 4
+    </script>
+</html> 
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        //deep cloning
+        let arr1 = [1,2,3];
+        let arr2 = arr1;
+        console.log(arr1);    //[1, 2, 3]
+        console.log(arr2);    //[1, 2, 3]
+        arr2.push(4);
+        console.log(arr1);    //[1, 2, 3, 4]
+        console.log(arr2);    //[1, 2, 3, 4]
+    </script>
+</html> 
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        //we will use spread operator for shallow cloning
+        //"..." called as spread operator
+        //spread operator introduced in ES6
+        let arr1 = [1,2,3];
+        let arr2 = [...arr1];
+        console.log(arr1);    //[1, 2, 3]
+        console.log(arr2);    //[1, 2, 3]
+        arr1.push(4);
+        console.log(arr1);    //[1, 2, 3, 4]
+        console.log(arr2);    //[1, 2, 3]  
+    </script>
+</html> 
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        console.log( typeof([]) );   //object
+        console.log([1]+1);          //11
+        document.write([1,2]+1);     //1,21
+        document.write("<br><br>");
+        document.write(1+[1,2,3]);   //11,2,3
+    </script>
+</html> 
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr1 = [];
+        console.log(arr1);    //[]
+        console.log(arr1.length);  //0
+        let arr2 = [undefined];
+        console.log(arr2.length);  //1
+        let arr3 = [null];
+        console.log(arr3.length);  //1
+        let arr4 = [undefined,null];
+        console.log(arr4.length);  //2       
+    </script>
+</html>
+
+
+(30-09-2019)
+
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        var arr = [2,3,4];
+        console.log(arr);    //[2, 3, 4]
+        arr.push(5);
+        console.log(arr);   //[2, 3, 4, 5]
+        arr.unshift(1);
+        console.log(arr);   //[1, 2, 3, 4, 5]
+        arr.pop();
+        console.log(arr);   //[1, 2, 3, 4]
+        arr.shift();
+        console.log(arr);   //[2, 3, 4]
+    </script>
+</html> 
+
+ <!DOCTYPE html>
+<html>
+    <script>
+        let arr = [10,20,30,40,50,60,70,80,90,100];
+        arr.splice(4,2);
+        console.log(arr);   //[10, 20, 30, 40, 70, 80, 90, 100]
+        arr.splice(3,2);
+        console.log(arr);  //[10, 20, 30, 80, 90, 100]
+        arr.splice(4);
+        console.log(arr);  //[10, 20, 30, 80]
+        arr.splice(3,0,40,50,60,70);
+        console.log(arr);  //[10, 20, 30, 40, 50, 60, 70, 80]
+        arr.splice(8,0,90,100);
+        console.log(arr);  //[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    </script>
+</html> 
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let arr = [10,20,30,40,50,60,70,80,90,100];
+        console.log(arr);   //[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        console.log( arr.slice(4,6) );   //[50, 60]
+        console.log( arr.slice(7,9) );   //[80, 90]
+        console.log( arr.slice(9) );     //[100]
+        console.log( arr.slice(0,1) );   //[10]
+    </script>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <script>
+        let arr = [10,20,30,40,50,60,70,80,90,100];
+        let i = arr.findIndex(function(element){
+            return element === 50;
+        });
+        arr.splice(i,1);
+        console.log(arr);   //[10, 20, 30, 40, 60, 70, 80, 90, 100]
+    </script>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+    <script>
+        let arr = [{"id":1},
+                   {"id":2},
+                   {"id":3},
+                   {"id":4},
+                   {"id":5}];
+        let i = arr.findIndex(function(element){
+            return element.id === 3;
+        });
+        arr.splice(i,1);
+        console.log(arr);
+    </script>
+</html>
+
+
+(04-09-2019)
+
+
+
+
+
+
+
+					***** Node Introduction *****
+
+	- NodeJS is the server side scripting language.
+
+	- NodeJS used to develop the Servers.
+
+		Http Server
+
+		TCP Server
+
+	- we will develop NodeJS Applications by using JavaScript.
+
+	- NodeJS Supports Modules.
+
+	- Predefined libraries called as Modules.
+
+	- we will download modules by using following tools.
+
+		1) npm
+
+		2) yarn
+
+	- "npm" tool given by node js.
+
+	- "npm" stands for node packaging manager.
+
+	- "yarn" tool given by facebook.
+
+	- "yarn" tool also called as "packaging manager".
+
+	- all the modules will be downloads to "node_modules" folder in current path.
+
+	- we will start the node server by using following command.
+
+		> node server
+
+		     (or)
+
+		> nodemon server
+
+	- "nodemon" is the tool given by node js.
+
+	- "nodemon" tool used to start the server in watch mode.
+
+
+Modules in NodeJS
+-----------------
+
+1) http
+
+	- http module used to develop the http servers.
+
+
+2) fs
+
+	- "fs" stands for file system.
+
+	- "fs" module used to interact with the flat files.
+
+	Ex.
+		xml files
+
+		json files
+
+		text files
+
+		---
+		---
+		---
+
+
+3) multer
+
+	- "multer" module used to upload the files to the server.
+
+
+
+4) socket.io
+
+
+	- this module used to implement the "chat" applications.
+
+
+5) nodemailer
+
+	- this module used to send the emails.  (gmail,yahoo,outlook,....)
+
+
+6) mysql
+
+	- this module used to interact with the mysql database.
+
+
+7) mssql
+
+	- this module used to interact with the SQL Server.
+
+
+8) mongodb
+
+	- this module used to interact with the mongodb database.
+
+	- the stable version of mongodb module is 2.2.32
+
+	- this module used to interact with the mongodb database without schema
+
+	- "schema" means rules and regulations.
+
+
+9) mongoose
+
+	- this module used to interact with the mongodb database with schema
+
+
+
+10) querystring
+
+	- this module used to read the post parameters (Forms).
+
+
+
+11) cookie-parser
+
+	- this module used to implement the cookies applications.
+
+
+12) express
+
+	- this module used to implement the rest services.
+
+	- rest services also called as webservices.
+
+	- in general we will test rest services by using "Postman".
+
+	- "Postman" is the tool, used to test the rest api calls.
+
+
+
+13) jwt-simple
+
+	- this module used to generate the tokens.
+
+	- in general we will use these tokens for authentication purpose.
+
+	- this authentication system called as token based authentication system.
+
+
+
+14) cors
+
+	- this module used to enable the ports communication.
+
+	- in general angular running on port no.4200
+
+	- in general react running on port no.3000
+
+	- in general "json server" running on port no.3000
+
+	- in general SQLServer running on port no.1433
+
+	- in general mongod running on port no.27017
+
+	- we will use "cors" module to enable communication between different servers ports.
+
+
+
+15) body-parser
+
+	- this module used to read the post parameters in rest apis.
+
+	- this module also used to set the MIME Type.
+
+	- communication language between client and server called as MIME Type.
+
+
+
+16) cluster
+
+	- this module used to implement the "load balancing" in node servers.
+
+
+
+(5-09-2019)
+
+
+//import "http" Module
+//"http" module is the inbuilt module in node server
+//"http" module used to create the http servers
+//require() is the predefined function, used to import the modules
+//require() function will return object.
+let http = require("http");
+
+//createServer(-) is the function in http module
+//createServer(-) function will create the http servers
+//argument for createServer(-) is "arrow function"
+//"arrow function" behaves like callback function
+//"arrow function" takes the following two arguments
+//@req      @res
+//req object used to receive the data from client
+//res object used to send the response to client
+//createServer(-) function will return "http server" instance
+let server = http.createServer((req,res)=>{
+    //writeHead(-,-) is the predefined function in res object
+    //writeHead(-,-) function used to set the MIME Type
+    //communication language between client and server called as MIME Type
+    res.writeHead(200,{'Content-Type':'text/html'});
+    //send the response to client
+    //write(-) used to send the response to client
+    res.write("<h1 style='color:red'>Welcome to Http Server</h1>");
+    //lock the response object
+    res.end();
+});
+//assign the port no
+server.listen(8080);
+console.log("server listening port no.8080");
+
+// http://localhost:8080/
+
+
+
+
+
+(6-09-2019)
+
+
+
+// var http = require("http");
+// var url = require("url");
+// var server = http.createServer((req,res)=>{
+//     res.writeHead(200,{'Content-Type':'text/html'});
+//     var obj = url.parse(req.url,true).query;
+//     var uname = obj.uname;
+//     var upwd = obj.upwd;
+//     if(uname === "admin" && upwd === "admin")
+//         res.write("<h1 style='color:green'>Login Success !!!</h1>");
+//     else
+//         res.write("<h1 style='color:red'>Login Fail !!!</h1>");
+//     res.end();
+// });
+// //assign the port no
+// server.listen(8080);
+// console.log("server listening the port no.8080");
+
+
+//Reading the post parameters (Http Server)
+
+//import http module
+var http = require("http");
+
+//import querystring module
+//querystring module is the native module
+//querystring module also inbuilt module in node server
+//querystring module used to read the post parameters
+var qs = require("querystring");
+
+//create the http server
+var server = http.createServer((req,res)=>{
+    //set the MIME Type
+    res.writeHead(200,{'Content-Type':'text/html'});
+    //declare variable to store post parameters
+    var data="";
+    //listen the post parameters
+    req.on("data",(result)=>{
+        data=data+result;
+    });
+    //end the listen process
+    req.on("end",()=>{
+        var obj = qs.parse(data);
+        var uname = obj.uname;
+        var upwd = obj.upwd;
+        if( uname === "admin" &&  upwd === "admin")
+            res.write("<h1 style='color:green'>Login Success</h1>");
+        else
+            res.write("<h1 style='color:red'>Login Fail</h1>");
+        res.end();
+    })
+});
+//assign the port no
+server.listen(8080);
+console.log("server listening the port no.8080");
+
+
+(same as get request)
+
+<!DOCTYPE html>
+<html>
+    <fieldset>
+        <legend>Login</legend>
+        <form method="POST" action="http://localhost:8080/">
+            <input type="text"
+                   name="uname"
+                   placeholder="User Name"> <br><br>
+            <input type="password"
+                   name="upwd"
+                   placeholder="Password"> <br><br>
+            <input type="submit" value="Login">
+        </form>
+    </fieldset>
+</html>
+
+
+
+(09-09-2019)
+
+				**** ExpressJS ****
+
+	- ExpressJS is the Framework.
+
+	- ExpressJS used to develop the Web Services.
+
+	- Providing the Communication Between Different Technologies called as
+	  Web Services.
+
+	- "express" is the module provided by ExpressJS.
+
+	- "express" module used to develop the WebServices.
+
+	- we will download express module by using "yarn" tool.
+
+	> yarn add express --save
+
+	- automatically "express" module downloads to "node_modules" folder
+	  in current path.
+
+
+Step 1.
+	create the directory (folder)
+
+	Ex.
+	    RestAPI
+
+
+Step 2.
+	download the express module
+
+	> yarn add express --save
+
+
+Step 3.
+	Develop the Rest API'S By Using NodeJS
+
+	Ex.
+	   server.js
+
+
+//import express module
+let express = require("express");
+
+
+//create the rest object
+//rest object used to develop the Rest Services
+//we will create Rest Object by using express module
+//we will call express class "constructor"
+//express class "constrctor" call will return "Rest Object".
+let app = express();
+//where "app" is the master object
+//where "app" object used to develop the Rest Services
+
+
+//create the Get Request
+app.get("/",(req,res)=>{
+    res.send("mysql data soon....!");
+});
+app.get("/mongodb",(req,res)=>{
+    res.send("mongodb data soon...!");
+});
+
+//create the post request
+app.post("/",(req,res)=>{
+    res.send("sqlserver data soon...!");
+});
+app.post("/firebase",(req,res)=>{
+    res.send("FireBase Data Soon...!");
+});
+
+
+//assign the port no
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+Step 4.
+	Start the server
+
+	> nodemon server
+
+
+Step 5.
+	Test the Rest API'S By Using Postman.
+
+
+	=> http://localhost:8080/          (GET)
+
+	=> http://localhost:8080/mongodb   (GET)
+
+	=> http://localhost:8080/          (POST)
+
+	=> http://localhost:8080/firebase  (POST)
+
+
+
+
+
+							***** Reading the Get Parameters *****
+
+
+Step 1.
+	create the directory
+
+	Ex.
+		GetParametersEx1
+
+
+Step 2.
+	download express module
+
+
+> yarn add express --save
+
+
+
+Step 3.
+	create the Rest API by using NodeJS
+
+	Ex.
+	   server.js
+
+
+let express = require("express");
+
+let app = express();
+
+app.get("/login",(req,res)=>{
+
+    //read the get parameters
+    //query is the property in req object
+    //query used to read the Get Parameters
+    let uname = req.query.uname;
+    let upwd = req.query.upwd;
+
+    if(uname === "admin" && upwd === "admin"){
+        res.send({"login":"success"});
+    }else{
+        res.send({"login":"fail"});
+    }
+});
+//assign the port no
+app.listen(8080);
+console.log("server listening the port no.8080")
+
+
+Step 4.
+	Start the Node Server
+
+	> nodemon server
+
+
+Step 5.
+	create the Form
+
+	Ex.
+	    index.html	
+
+
+<fieldset>
+    <legend>Login</legend>
+    <form method="GET" action="http://localhost:8080/login/">
+        <input type="text"
+               name="uname"
+               placeholder="User Name">
+        <br><br>
+        <input type="password"
+               name="upwd"
+               placeholder="Password">
+        <br><br>
+        <input type="submit" value="Login">
+    </form>
+</fieldset>
+
+
+
+(10-09-2019)
+
+
+http://localhost:8080/login/admin/admin    (SPA)
+
+
+Step 1.
+	create the directory
+
+	Ex.
+		GetParametersEx2
+
+
+Step 2.
+	download the express module
+
+	> yarn add express --save
+
+
+Step 3.
+	develop the Rest API by using NodeJS
+
+
+	Ex.
+	     server.js
+
+
+//import express module
+let express = require("express");
+//create the Rest Object
+let app = express();
+//create the get request
+app.get("/login/:uname/:upwd",(req,res)=>{
+    //read the parameters
+    let uname = req.params.uname;
+    let upwd = req.params.upwd;
+    if(uname === "admin" &&  upwd === "admin"){
+        res.send({"login":"success"});
+    }else{
+        res.send({"login":"fail"});
+    }
+});
+//assign the port
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+Step 4.
+	Start the server
+
+	> nodemon server
+
+
+Step 5.
+	Test the Rest API Call
+
+
+
+	    **** Reading the Post Parameters ****
+
+
+	- "body-parser" is the module, used to read the 
+	   post parameters in expressjs
+
+
+
+Step 1.
+	create the directory
+
+	Ex.
+	    PostEx1
+
+
+Step 2.
+	download the following node modules
+
+	=> express
+
+	=> body-parser
+
+	> yarn add express body-parser --save
+
+
+Step 3.
+	Develop the Rest API
+
+	Ex.
+	   server.js
+
+
+//import express module
+let express = require("express");
+//import body-parser module
+let bodyparser = require("body-parser");
+//create the rest object
+let app = express();
+//set the JSON as MIME Type
+app.use(bodyparser.json());
+//read extended parameters (post parameters)
+app.use(bodyparser.urlencoded({extended:true}));
+//create the Rest API
+app.post("/login",(req,res)=>{
+    //read the login credentials
+    let uname = req.body.uname;
+    let upwd = req.body.upwd;
+    if(uname === "admin" && upwd === "admin"){
+        res.send({"login":"success"});
+    }else{
+        res.send({"login":"fail"});
+    }
+});
+//assign the port no
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+
+Step 4.
+	Start the Server
+
+	> nodemon server
+
+
+Step 5.
+	create the form
+
+	Ex.
+	    index.html
+
+
+<fieldset>
+    <legend>Login</legend>
+    <form method="POST" action="http://localhost:8080/login">
+        <input type="text"
+               name="uname"
+               placeholder="User Name">
+        <br><br>
+        <input type="password"
+               name="upwd"
+               placeholder="Password">
+        <br><br>
+        <input type="submit" value="Login">
+    </form>
+</fieldset>
+
+
+	   Reading the Non Form Data  (JSON Data)
+	   --------------------------------------
+
+- "Non Form Data" also called as "not extended parameters"
+
+Step 1.
+	create the directory
+
+	Ex.	
+		PostEx2
+
+
+Step 2.
+	download the node modules
+
+	> yarn add express body-parser --save
+
+
+Step 3.
+	Develop the Rest API By Using NodeJS
+
+	Ex.
+	     server.js
+
+
+//import express module
+let express = require("express");
+//import body-parser module
+let bodyparser = require("body-parser");
+//create the Rest Object
+let app = express();
+//set the MIME Type
+app.use(bodyparser.json());
+//read the non extended parameters
+app.use(bodyparser.urlencoded({extended:false}));
+//create the rest api
+app.post("/login",(req,res)=>{
+    if(req.body.uname === "admin" && 
+       req.body.upwd === "admin"){
+        res.send({"login":"success"});
+    }else{
+        res.send({"login":"fail"});
+    }
+});
+//assign the port
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+Step 4.
+	Start the Server
+
+	> nodemon server
+
+
+Step 5.
+	Test the Rest API By Using Postman
+
+	=> http://localhost:8080/login
+
+
+
+
+
+(11-09-2019)
+
+
+Exporting and importing in Nodejs:
+----------------------------------
+
+- In node js we can ecport variables, functions classes and Json and so on
+
+- Any one can import the exported members.
+
+Config.js:
+---------
+
+let db_properties = {
+    host    :   "localhost",
+    user    :   "root",
+    password:   "root",
+    database:   "nodedb"
+};
+module.exports = db_properties;
+//"exports" is the property in "module".
+//"module" is the predefined object in NodeJS.
+//"exports" property used to export the Node Data.
+
+
+db.js:
+------
+
+//import config.js file
+let obj = require("./config");
+console.log(obj.host,
+            obj.user,
+            obj.password,
+            obj.database);   //localhost root root nodedb
+
+
+
+EX-2:
+----
+
+db_name.js:
+----------
+
+const db_name = "MongoDB";
+module.exports = db_name;
+
+db_fun.js:
+---------
+
+const db_name = require("./db_name");
+const getData = ()=>{
+    return `${db_name} Data Soon...!`;
+};
+module.exports = getData;
+
+
+server.js:
+---------
+
+let express = require("express");
+let my_fun = require("./db_fun");
+let app = express();
+app.get("/",(req,res)=>{
+    res.send( my_fun() );
+});
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+
+Reading the headers in express js:
+----------------------------------
+
+
+let express = require("express");
+
+let app = express();
+
+app.get("/login",(req,res)=>{
+    let allHeaders = req.headers;
+    let header_1 = allHeaders.token;
+    let header_2 = allHeaders.password;
+
+    res.send({'key1':header_1,'key2':header_2});
+});
+
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+
+(12-09-2019)
+
+
+Developing the Rest API'S by using NodeJS with MySQL DataBase
+-------------------------------------------------------------
+
+1) Make the MySQL DataBase Ready for CRUD Operations
+
+> Default Password : root
+
+> create schema nodedb;
+
+	- automatically "nodedb" database will be created.
+
+> use nodedb;
+
+	- automatically we can switch to "nodedb" database.
+
+> create table products(p_id integer,
+			p_name varchar(20),
+			p_cost integer,
+			p_qty integer);
+
+	- automatically "products" table will be created.
+
+
+> insert into products values(111,'p_one',10000,10);
+
+	- automatically record will be inserted into database.
+
+> select * from products;
+
+	- we can fetch the data from "products" collection.
+
+
+*******************************************
+host      :   localhost
+
+
+user      :   root
+
+
+password  :   root
+
+
+database  :   nodedb
+
+
+table     :   products
+******************************************
+
+
+2) download the following node modules
+
+	=> express
+
+	=> mysql
+
+	=> body-parser
+
+	=> cors
+
+	- "express" module used to develop the Rest API'S.
+
+	- "mysql" module used to intearct with the mysql database.
+
+	- "body-parser" module used to read the post parameters.
+
+	- "cors" module used to enable the ports communication 
+
+
+	> yarn add express mysql body-parser cors --save
+
+
+3) develop the Rest API'S By Using NodeJS
+
+
+***********************************************
+MySQL_CRUD
+        config
+	   db_properties.js
+
+//this file used to maintain the MySQL database credentials
+const obj = {
+    "host":"localhost",
+    "user":"root",
+    "password":"root",
+    "database":"nodedb"
+};
+module.exports = obj;
+
+	   db_connection.js
+
+//this file used to create and return the mysql connection object
+//import mysql module
+let mysql = require("mysql");
+//import db_properties
+let db_prop = require("./db_properties");
+//create the JSON Object
+let obj = {
+    "connection":()=>{
+        return mysql.createConnection(db_prop);
+    }
+};
+//export the JSON Object
+module.exports = obj;
+
+
+	   queries.js
+
+//this file used to maintain the SQL Queries
+let obj = {
+    "fetch":(connection,res)=>{
+        connection.query(`select * from products`,(err,records,fields)=>{
+            if(err)
+                throw err;
+            else
+                res.send(records);
+        })
+    },
+    "insert":(connection,req,res)=>{
+        connection.query(`insert into products values(${req.body.p_id},'${req.body.p_name}',${req.body.p_cost},${req.body.p_qty})`,(err,result)=>{
+            if(err)
+                throw err;
+            else
+                res.send({"insert":"success"});
+        });
+    },
+    "update":(connection,req,res)=>{
+        connection.query(`update products set p_name='${req.body.p_name}',p_cost=${req.body.p_cost} where p_id=${req.body.p_id}`,(err,result)=>{
+            if(err)
+                throw err;
+            else
+                res.send({"update":"success"});
+        })
+    },
+    "delete":(connection,req,res)=>{
+        connection.query(`delete from products where p_id=${req.body.p_id}`,(err,result)=>{
+            if(err)
+                throw err;
+            else
+                res.send({"delete":"success"});
+        });
+    }
+};
+module.exports = obj;
+
+	fetch
+	   fetch.js
+
+//this file used to fetch the data from products
+//import express module
+let express = require("express");
+//import db_connection
+let obj = require("../config/db_connection");
+//get the connection object
+let connection = obj.connection();
+//connect to database
+connection.connect();
+//import queries
+let obj1 = require("../config/queries");
+//create the module
+let module1 = express.Router().get("/",(req,res)=>{
+    obj1.fetch(connection,res);
+});
+//export module1
+module.exports = module1;
+
+
+
+
+	insert
+	   insert.js
+
+//this file used to insert the data into products table
+//import express module
+let express = require("express");
+//import db_connection
+let obj = require("../config/db_connection");
+//get the connection object
+let connection = obj.connection();
+//connect to database
+connection.connect();
+//import queries
+let obj1 = require("../config/queries");
+//create the module
+let module2 = express.Router().post("/",(req,res)=>{
+    obj1.insert(connection,req,res);
+});
+//export module2
+module.exports = module2;
+
+
+
+	update
+	   update.js
+
+//this file used to update the data in products table
+//import express module
+let express = require("express");
+//import db_connection
+let obj = require("../config/db_connection");
+//get the connectio object
+let connection = obj.connection();
+//connect to database
+connection.connect();
+//import queries
+let obj1 = require("../config/queries");
+//create the module
+let module3 = express.Router().put("/",(req,res)=>{
+    obj1.update(connection,req,res);
+});
+//export module3
+module.exports = module3;
+
+
+
+	delete
+	   delete.js
+
+//this file used to delete the record from products
+
+//import express module
+let express = require("express");
+//import db_connection
+let obj = require("../config/db_connection");
+//get the connection object
+let connection = obj.connection();
+//connect to database
+connection.connect();
+//import queries
+let obj1 = require("../config/queries");
+//create the module
+let module4 = express.Router().delete("/",(req,res)=>{
+    obj1.delete(connection,req,res);
+});
+//export module4
+module.exports = module4;
+
+
+
+	server.js
+
+//this file is the main server file
+//node starts the execution from server.js file
+//import express module
+let express = require("express");
+//import body-parser
+let bodyparser = require("body-parser");
+//import cors module
+//cors module used to enable the ports communication
+let cors = require("cors");
+//create the rest object
+let app = express();
+//set the JSON as MIME Type
+app.use(bodyparser.json());
+//read the non extended parameters
+app.use(bodyparser.urlencoded({extended:false}));
+//enable the ports communication
+app.use(cors());
+//import module1
+let module1 = require("./fetch/fetch");
+//use the module1
+app.use("/fetch",module1);
+//import module2
+let module2 = require("./insert/insert");
+//use the module2
+app.use("/insert",module2);
+//import module3
+let module3 = require("./update/update");
+//use the module3
+app.use("/update",module3);
+//import module4
+let module4 = require("./delete/delete");
+//use the module4
+app.use("/delete",module4);
+//assign the port no
+app.listen(8080);
+console.log("server listening the port no.8080");
+************************************************
+
+	- "db_properties.js" file used to maintain the database properties.
+
+	- "db_connection.js" file used to create and return the mysql connection
+	  object
+
+	- "queries.js" file used to maintain the SQLQueries (DML & DQL).
+
+	- "fetch.js" file used to fetch the data from "products" table.
+
+	- "insert.js" file used to insert the data into "products" table.
+
+	- "update.js" file used to update the data in "products" table.
+
+	- "delete.js" file used to delete the data from "products" table. 
+
+	- "server.js" file is the main server file.
+
+
+4) start the server
+
+> nodemon server
+
+
+5) Test the Rest API'S By Using Postman
+
+	=> http://localhost:8080/fetch   (GET)
+
+	=> http://localhost:8080/insert  (POST)
+
+	=> http://localhost:8080/update  (PUT)
+
+	=> http://localhost:8080/delete  (DELETE)
+
+
+
+
+
+
+
+(13-09-2019)
+
+
+Login authentication with my sql database:
+------------------------------------------
+
+
+1) Make the MySQL DataBase Ready 
+create
+> Default Password : root
+
+> create schema nodedb;
+
+	- automatically "nodedb" database will be created.
+
+> use nodedb;
+
+	- automatically we can switch to "nodedb" database.
+
+> create table login_detail(uname varchar(20),upwd varchar(20));
+
+	- automatically "products" table will be created.
+
+
+> insert into products values("admin","admin");
+
+	- automatically record will be inserted into database.
+
+> select * from login_details;
+
+	- we can fetch the data from "products" collection.
+
+
+*******************************************
+host      :   localhost
+
+
+user      :   root
+
+
+password  :   root
+
+
+database  :   nodedb
+
+
+table     :   login_details
+******************************************
+
+
+2) download the following node modules
+
+	=> express
+
+	=> mysql
+
+	=> body-parser
+
+	=> cors
+
+        => jwt-simple
+
+	- "express" module used to develop the Rest API'S.
+
+	- "mysql" module used to intearct with the mysql database.
+
+	- "body-parser" module used to read the post parameters.
+
+	- "cors" module used to enable the ports communication 
+        
+        - "jwt-simple" module used to generate the tokens.   
+          
+
+	> yarn add express mysql body-parser cors jwt-simple --save
+
+
+3) develop the Rest API'S By Using NodeJS
+------------------------------------------
+
+              Login
+
+                   config:
+
+                  db_properties
+
+//this file used to maintain the DataBase Properties.
+let obj = {
+    "host":"localhost",
+    "user":"root",
+    "password":"root",
+    "database":"nodedb"
+};
+module.exports = obj;
+
+
+ 
+                   db_connection
+
+//this file used to create and return the mysql connection object
+
+//import mysql module
+let mysql = require("mysql");
+//import db_properties
+let prop = require("./db_properties");
+//create the JSON Object
+let obj = {
+    "connection":()=>{
+        return mysql.createConnection(prop);
+    }
+};
+//export obj
+module.exports = obj;
+
+                   generatetoken.js
+
+//this file used to generate the token by using jwt-simple module
+//converting "readable data" to "encrypted format" with "password" called as token
+//import jwt-simple module
+let jwt = require("jwt-simple");
+//create the function
+let my_fun = (obj,password)=>{
+    return jwt.encode(obj,password);
+};
+//export the function
+module.exports = my_fun;
+
+
+
+                    queries.js
+
+
+//this file used to maintain the SQLQueries
+
+//import generateToken
+//generateToken contain exported function
+let my_fun = require("./generateToken");
+//we will call "my_fun" with two arguments
+//@obj  @password
+//"my_fun" will return token
+
+
+//create the json object
+let obj = {
+    "login" : (connection,req,res)=>{
+        connection.query(`select * from login_details where uname='${req.body.uname}' and upwd='${req.body.upwd}'`,(err,records,fields)=>{
+            if(records.length>0){
+                let token = my_fun({"uname":req.body.uname,
+                                    "upwd":req.body.upwd} , "hr@nareshit.in");
+                res.send({"login":"success","token":token});
+            }else{
+                res.send({"login":"fails"});
+            }
+        });
+    }
+};
+//export the obj
+module.exports = obj;
+
+
+                      Login
+
+                          login.js
+
+//import express module
+let express = require("express");
+//import queries
+let queries = require("../config/queries");
+//import db_connection
+let obj = require("../config/db_connection");
+//get the connection object
+let connection = obj.connection();
+//connect to database
+connection.connect();
+//create the module
+let module1 = express.Router().post("/",(req,res)=>{
+    queries.login(connection,req,res);
+});
+//export the module1
+module.exports = module1;
+
+                           server.js
+
+
+//this file is the main node file
+//node server starts the execution from this file
+//import express module
+let express = require("express");
+//import body-parser module
+let bodyparser = require("body-parser");
+//import cors module
+let cors = require("cors");
+//create the rest object
+let app = express();
+//set the JSON as MIME Type
+app.use(bodyparser.json());
+//read the non extended parameters
+app.use(bodyparser.urlencoded({extended:false}));
+//enable the cors
+app.use(cors());
+//import module1
+let module1 = require("./login/login");
+//use the module1
+app.use("/login",module1);
+//assign the port
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+Test the rest api by using Postman:
+------------------------------------
+
+http://localhost:8080/login   (POST)
+
+
+
+
+
+                *********mssql database*************
+                ------------------------------------- 
+
+(19-09-2019)
+
+
+
+mssql_properties:
+------------------
+
+let obj = {
+    server : "localhost",
+    user   : "sa",
+    password : "123",
+    database : "nodedb"
+};
+module.exports = obj;
+
+fetch.js:
+---------
+
+
+let express = require("express");
+let mssql = require("mssql");
+let prop = require("../config/mssql_properties");
+let module1 = express.Router().get("/",(req,res)=>{
+    mssql.connect(prop,(err)=>{
+        if(err)
+            throw err;
+        else{
+            let request = new mssql.Request();
+            request.query(`select * from products`,
+                                            (err,records)=>{
+                if(err)
+                    throw err;
+                else
+                    res.send(records);
+                mssql.close();
+            });
+        }
+    });
+});
+module.exports = module1;
+
+
+insert.js:
+----------
+
+let express = require("express");
+let mssql = require("mssql");
+let prop = require("../config/mssql_properties");
+let module2 = express.Router().post("/",(req,res)=>{
+    mssql.connect(prop,(err)=>{
+        if(err)
+            throw err;
+        else{
+            let request = new mssql.Request();
+            request.query(`insert into products values(
+                ${req.body.p_id},
+                '${req.body.p_name}',
+                ${req.body.p_cost},
+                ${req.body.p_qty})`,(err,result)=>{
+                    if(err)
+                        throw err;
+                    else
+                        res.send({"insert":"success"});
+                    mssql.close();
+            });
+        }
+    });
+});
+module.exports = module2;
+
+
+
+update.js:
+----------
+
+let express = require("express");
+let mssql = require("mssql");
+let prop = require("../config/mssql_properties");
+let module3 = express.Router().put("/",(req,res)=>{
+    mssql.connect(prop,(err)=>{
+        if(err)
+            throw err;
+        else{
+            let request = new mssql.Request();
+            request.query(`update products set p_name='${req.body.p_name}',p_cost=${req.body.p_cost},p_qty=${req.body.p_qty} where p_id=${req.body.p_id}`,(err,result)=>{
+                if(err)
+                    throw err;
+                else
+                    res.send({"update":"success"});
+                mssql.close();
+            });
+        }
+    });
+});
+module.exports = module3;
+
+
+delete.js:
+----------
+
+let express = require("express");
+let mssql = require("mssql");
+let prop = require("../config/mssql_properties");
+let module4 = express.Router().delete("/",(req,res)=>{
+    mssql.connect(prop,(err)=>{
+        if(err)
+            throw err;
+        else{
+            let request = new mssql.Request();
+            request.query(`delete from products where p_id=${req.body.p_id}`,(err,result)=>{
+                if(err)
+                    throw err;
+                else
+                    res.send({"delete":"success"});
+                mssql.close();
+            });
+        }
+    });
+});
+module.exports = module4;
+
+server.js:
+----------
+
+let express = require("express");
+let bodyparser = require("body-parser");
+let cors = require("cors");
+let app = express();
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:false}));
+app.use(cors());
+app.use("/fetch",require("./fetch/fetch"));
+app.use("/insert",require("./insert/insert"));
+app.use("/update",require("./update/update"));
+app.use("/delete",require("./delete/delete"));
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+Test the rest api by using postman tool:
+-----------------------------------------
+
+              =>http://localhost:8080/fetch   (GET)
+
+              =>http://localhost:8080/insert    (POST)
+         
+              =>http://localhost:8080/update    (PUT)
+              
+              =>http://localhost:8080/delete    (DELETE)  
+
+
+
+
+(23-09-2019)
+
+Config:
+
+
+imports.js:
+-----------
+/*
+    //this file used to maintain all the modules
+*/
+let obj = {
+    "express":require("express"),
+    "mysql":require("mysql"),
+    "mongodb":require("mongodb"),
+    "mssql":require("mssql"),
+    "cors":require("cors"),
+    "bodyparser":require("body-parser"),
+    "jwt":require("jwt-simple")
+};
+module.exports = obj;
+
+
+mysql_properties.js:
+--------------------
+
+/*
+    this file used to maintain the mysql database properties
+*/
+let obj = {
+    host : "localhost",
+    user : "root",
+    password : "root",
+    database : "nodeproject"
+};
+module.exports = obj;
+
+
+mssql_properties.js:
+----------------------
+
+/*
+    this file used to maintain the SQLServer Properties
+*/
+let obj = {
+    server   : "localhost",
+    user     : "sa",
+    password : "123",
+    database : "nodeproject"
+};  
+module.exports = obj;
+
+mysql_connections:
+-------------------
+/*
+    this file used to create and return the mysql connection object 
+*/
+
+//import mysql module
+let mysql = require("./imports").mysql;
+//import mysql_properties
+let prop = require("./mysql_properties");
+//create the function
+let myFun = ()=>{
+    return mysql.createConnection(prop);
+};
+//export the myFun
+module.exports = myFun;
+
+token.js:
+---------
+/*
+    this file used to save the server side token
+*/
+let obj = {
+    "token":""
+};
+module.exports = obj;
+
+generatetoken.js:
+------------------
+/*
+    this file used to generate the token by using jwt-simple module.
+*/
+//import jwt-simple module
+let jwt = require("./imports").jwt;
+//create the function
+let myFun = (obj,password)=>{
+    //converting readable data to unreadable data called as token.
+    //myFun takes the two arguments.
+    //we will encrypt obj by using password.
+    //encrypted format of obj called as token.
+    return jwt.encode(obj,password);
+};
+//export myFun
+module.exports = myFun;
+
+
+auth.js:
+---------
+/*
+    this file used to compare the "client side token" with "server side token".
+    this file also called as middleware
+*/
+let obj = require("./token");
+let myFun = (req,res,next)=>{
+    let allHeaders = req.headers;
+    let c_token = allHeaders.token;
+    let s_token = obj.token;
+    if(c_token === s_token){
+        next();
+    }else{
+        res.send("UnAuthorized User");
+    }
+};
+module.exports = myFun;
+
+
+login:
+login.js:
+---------
+
+module.exports = require("../config/imports").express.Router().post("/",
+                                                                (req,res)=>{
+   
+    let connection = require("../config/mysql_connection")();
+    connection.connect();
+    
+    connection.query(`select * from login_details where uname='${req.body.uname}' and upwd='${req.body.upwd}'`,(err,records,fields)=>{
+        if(records.length>0){
+            let token = require("../config/generateToken")({
+                "uname":req.body.uname,
+                "upwd":req.body.upwd
+            },"hr@nareshit.in");
+            require("../config/token").token = token;
+            res.send({"login":"success","token":token});
+        }else{
+            res.send({"login":"fail"});
+        }
+    });
+});
+
+
+about
+about.js:
+----------
+module.exports = require("../config/imports").express.Router()
+                .get("/",[require("../config/auth")],(req,res)=>{
+    let connection = require("../config/mysql_connection")();
+    connection.connect();
+    connection.query(`select * from about`,(err,records,fields)=>{
+        res.send(records);
+    });
+});
+
+portfolio
+portfolio.js:
+-------------
+
+module.exports = require("../config/imports").express.Router().get("/",
+[require("../config/auth")],(req,res)=>{
+    let mongodb = require("../config/imports").mongodb;
+    let nareshIT = mongodb.MongoClient;
+    nareshIT.connect("mongodb://localhost:27017/nodeproject",(err,db)=>{
+        db.collection("portfolio").find().toArray((err,records)=>{
+            res.send(records);
+        });
+    });
+});
+
+contact
+contact.js:
+-----------
+
+/*
+    this file used to fetch the data from SQLServer
+*/
+let mssql = require("../config/imports").mssql;
+let prop = require("../config/mssql_properties");
+module.exports = 
+        require("../config/imports").express.Router()
+        .get("/",[require("../config/auth")],(req,res)=>{
+    mssql.connect(prop,(err)=>{
+        if(err)
+            throw err;
+        else{
+            let request = new mssql.Request();
+            request.query(`select * from contact`,
+                                            (err,records)=>{
+                if(err)
+                    throw err;
+                else
+                    res.send(records);
+                mssql.close();
+            });
+        }
+    });
+});
+
+
+logout
+logout.js:
+----------
+module.exports = require("../config/imports").express.Router()
+                .get("/",[require("../config/auth")],(req,res)=>{
+    require("../config/token").token = "";
+    res.send({"logout":"success"});
+});
+
+
+server.js:
+---------
+
+let express = require("./config/imports").express;
+let bodyparser = require("./config/imports").bodyparser;
+let cors = require("./config/imports").cors;
+let app = express();
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:false}));
+app.use(cors());
+app.use("/login",require("./login/login"));
+app.use("/about",require("./about/about"));
+app.use("/portfolio",require("./portfolio/portfolio"));
+app.use("/contact",require("./contact/contact"));
+app.use("/logout",require("./logout/logout"));
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+
+              http://localhost:8080/login (POST)
+              http://localhost:8080/about  (GET)
+              http://localhost:8080/portfolio  (GET)
+              http://localhost:8080/contact    (GET)
+              http://localhost:8080/logout    (get)   
+
+             
+
+
+
+
+
+
+(25-09-2019)
+                          *********MERN STACK DEVELOPMENT****************
+                          -----------------------------------------------
+
+(server.js)
+
+
+let express = require("express");
+let mongodb = require("mongodb");
+let cors = require("cors");
+let nareshIT = mongodb.MongoClient;
+let app = express();
+app.use(cors());
+app.get("/products",(req,res)=>{
+    nareshIT.connect("mongodb://localhost:27017/mern",
+                    (err,db)=>{
+        db.collection("products").find()
+          .toArray((err,array)=>{
+            if(err)
+                throw err;
+            else
+                res.send(array);
+        });
+    });
+});
+app.listen(8080);
+console.log("server listening the port no.8080");
+
+
+
+(demo-app)
+-----------
+
+
+
+
+
+//import React
+//React is the predefined class
+//React class creates the React Environment in Component
+
+//import Component
+//Component is the predefined "static inner class" React Class
+//Component class used to create the React Component
+import React,{ Component } from "react";
+
+//import axios
+//axios used to make the rest api calls
+import axios from "axios";
+
+//create the component
+export default class App extends React.Component{
+    constructor(){
+        super();
+        this.state = {
+            products:[]
+        };
+    };
+    
+    componentDidMount(){
+        axios.get("http://localhost:8080/products").then((posRes)=>{
+            this.setState({
+              products : posRes.data
+            })
+        },(errRes)=>{
+          console.log(errRes);
+        });
+    };
+    render(){
+      return(<div>
+          <table border="1"
+                 cellPadding="10px"
+                 cellSpacing="10px"
+                 align="center">
+                <thead style={{backgroundColor:"grey"}}>
+                    <tr>
+                      <th>SNO</th>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.state.products.map((element,index)=>(
+                        <tr>
+                           <td>{index+1}</td>
+                           <td>{element.p_id}</td>
+                           <td>{element.p_name}</td>
+                           <td>{element.p_cost}</td>
+                        </tr>
+                    ))}
+                </tbody>
+          </table>
+      </div>)
+    };
+};
+
+
+
+
+
+(03-10-2019)
+
+
+Multer Demo:
+------------
+
+App.js:
+--------
+
+var express = require("express");
+var multer = require("multer");
+
+var app = express();
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now()+'.jpg');
+    }
+})
+var upload = multer({ storage: storage }).single('profileImage');
+
+app.post('/profile', function (req, res) {
+    upload(req, res, function (err) {
+        if (err) {
+            res.json({"status":false});
+        }
+        res.json({"status":true});
+    })
+})
+
+app.listen(8080);
+console.log("Server Listening the port no.8080");
+
+
+Cluster Demo:
+-------------
+
+// Clustring with native node js
+var http = require("http");
+var cluster = require("cluster");
+
+if (cluster.isMaster) {
+	for(var i = 1; i <=4; i++) {
+		cluster.fork();
+	}
+} else {		
+	var server = http.createServer(function(req, res){
+		res.end("done"+process.pid);
+	});
+
+	server.listen(8080, function(){
+		console.log("running-- at Process --"+process.pid);
+	});
+}
+
+
+
+expressCluster.js:
+------------------
+
+// Clustring with express module node js
+
+var express = require("express");
+
+var cluster = require("express-cluster");
+
+
+cluster(function(){
+	var app = express();
+
+	app.get("/", function(req, res){
+		res.send("DOONE at " + process.pid);
+	});
+
+	return app.listen(8080, function(){
+		console.log("server is listng at "+ process.pid);
+	});
+}, {count:5});
+
+
+
+Socket App.js:
+--------------
+
+var express = require("express");
+var app = express();
+
+// app.use(express.static("public"));
+
+var server = require("http").createServer(app).listen(8080);
+
+var io = require("socket.io").listen(server);
+
+console.log(io.sockets);
+
+io.sockets.on("connect", function(socket){
+	console.log("Socket server connected");
+	/*socket.emit("sendmsg", "Helo all");
+
+	socket.on("sendmsg", function(data){
+		console.log("got message");
+		console.log(data);
+	});*/
+});
+
+
+**************************************
+
+//import express module
+var express = require("express");
+
+//create Rest Object
+var app = express();
+
+//Deploy the application
+app.use(express.static("public"));
+
+
+//create http server and listening the port no.8080
+var server = require("http").createServer(app).listen(8080, function(){
+	console.log("Socket server listing at 8080");
+});
+
+
+//socket server listening the port no.8080
+var io = require("socket.io").listen(server);
+
+//chat application implementation
+io.sockets.on("connection", function(socket){
+	socket.on("sendData", function(data){
+		io.sockets.emit("chatreceive", data);
+	});
+});
+
+
+
+
+
+
+ (04-10-2019)
+
+
+
+/*
+let fs = require("fs");
+fs.readFile("sample.txt",(err,data)=>{
+    let data1 = data.toString();
+    debugger;
+    if(err)
+        throw err;
+});
+
+    > node debug index.js
+    > next
+    > next
+    > cont
+    > watch("data")
+    > watchers
+*/
+
+
+let express = require("express");
+let fs = require("fs");
+let app = express();
+app.get("/wish",(req,res)=>{
+    debugger;
+    fs.readFile("./sample.txt",(err,data)=>{
+        debugger;
+        res.send(data);
+    });
+});
+app.listen(8080);
+
+
+
+
+*********************PASSPORTJS*********************8
+
+
+
+index.js:
+----------
+
+
+/*  EXPRESS SETUP  */
+
+const express = require('express');
+const app = express();
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/', (req, res) => res.sendFile('auth.html', { root : __dirname}));
+
+const port = process.env.PORT || 3000;
+app.listen(port , () => console.log('App listening on port ' + port));
+
+/*  PASSPORT SETUP  */
+
+const passport = require('passport');
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/success', (req, res) => res.send("Welcome "+ req.query.username + "!!"));
+app.get('/error', (req, res) => res.send("error logging in"));
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function(id, cb) {
+  User.findById(id, function(err, user) {
+    cb(err, user);
+  });
+});
+
+/* MONGOOSE SETUP */
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/MyDatabase');
+
+const Schema = mongoose.Schema;
+const UserDetail = new Schema({
+      username: String,
+      password: String
+    });
+const UserDetails = mongoose.model('userInfo', UserDetail, 'userInfo');
+
+/* PASSPORT LOCAL AUTHENTICATION */
+
+const LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+      UserDetails.findOne({
+        username: username 
+      }, function(err, user) {
+        if (err) {
+          return done(err);
+        }
+
+        if (!user) {
+          return done(null, false);
+        }
+
+        if (user.password != password) {
+          return done(null, false);
+        }
+        return done(null, user);
+      });
+  }
+));
+
+app.post('/', 
+  passport.authenticate('local', { failureRedirect: '/error' }),
+  function(req, res) {
+    res.redirect('/success?username='+req.user.username);
+  });
+
+
+
+Form:
+-----
+
+<html>
+  <body>
+    <form action="/" method="post">
+      <div>
+        <label>Username:</label>
+        <input type="text" name="username" />
+        <br/>
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
